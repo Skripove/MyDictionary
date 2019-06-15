@@ -19,8 +19,8 @@ void MainWindow::on_btnDictionary_clicked()
     wordListDialog->setAttribute(Qt::WA_DeleteOnClose);//очистка памяти при закрытии диалогового окна
     //соединение сигнала и слота показа главного окна
     connect(wordListDialog, SIGNAL(showMainWindowSignal()), this, SLOT (showMainWindowSlot()));
-    hide();
-    wordListDialog->show();
+    hide();//скрыли главное окно
+    wordListDialog->show();//показали окно словаря
 }
 
 void MainWindow::showMainWindowSlot()//слот показа главного окна
