@@ -221,6 +221,7 @@ void WordsListWindow::deleteWord()//удалить слово
     delWordFromDB(keyRu);//удалить слово из базы данных
     delWordFromMaps(keyRu, keyEng);//удалить слово из Мапов
     ui->listWords->takeItem(itemInt);//удалить слово из списка
+    ui->labelImg->clear();
 }
 
 bool WordsListWindow::delWordFromMaps(QString keyRu, QString keyEng)//удалить слово из Мапов
@@ -228,8 +229,8 @@ bool WordsListWindow::delWordFromMaps(QString keyRu, QString keyEng)//удали
     QString nameDelImage = mapRU->value(keyRu)[1];//имя удаляемой картинки
     mapRU->remove(keyRu);//удаляем значение из русского
     mapENG->remove(keyEng);//удаляем значение из английского
-
-    delImageFromDir(nameDelImage);//удалить картинку из папки
+    if(nameDelImage != "0")
+        delImageFromDir(nameDelImage);//удалить картинку из папки
     return true;
 }
 

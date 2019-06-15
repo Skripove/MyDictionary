@@ -146,12 +146,15 @@ border-image: url(:/res/img/addHover.png);
     <rect>
      <x>290</x>
      <y>74</y>
-     <width>300</width>
-     <height>300</height>
+     <width>250</width>
+     <height>250</height>
     </rect>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
    </property>
   </widget>
   <widget class="QPushButton" name="btnDelWord">

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>426</width>
-    <height>488</height>
+    <width>419</width>
+    <height>490</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,7 +46,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Segoe UI</family>
+     <family>Roboto</family>
      <pointsize>12</pointsize>
     </font>
    </property>
@@ -105,7 +105,7 @@ border-image: url(:/res/img/closeHover.png);
    </property>
    <property name="font">
     <font>
-     <family>Segoe UI</family>
+     <family>Roboto</family>
      <pointsize>12</pointsize>
     </font>
    </property>
@@ -124,7 +124,7 @@ border-image: url(:/res/img/closeHover.png);
    </property>
    <property name="font">
     <font>
-     <family>Segoe UI</family>
+     <family>Roboto</family>
      <pointsize>12</pointsize>
     </font>
    </property>
@@ -143,7 +143,7 @@ border-image: url(:/res/img/closeHover.png);
    </property>
    <property name="font">
     <font>
-     <family>Segoe UI</family>
+     <family>Roboto</family>
      <pointsize>15</pointsize>
     </font>
    </property>
@@ -159,11 +159,6 @@ border-image: url(:/res/img/closeHover.png);
      <width>141</width>
      <height>31</height>
     </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-    </font>
    </property>
    <property name="text">
     <string>Загрузить изображение</string>

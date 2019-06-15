@@ -19,8 +19,10 @@ public:
 
 private slots:
     void on_btnDictionary_clicked();//обработчик открытия словаря
-    void showMainWindowSlot();
+    void showMainWindowSlot();//слот показа главного окна
     void on_btnStart_clicked();//обработчик начала тренировки
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
