@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>img/add.png</file>
+        <file>img/addHover.png</file>
+        <file>img/close.png</file>
+        <file>img/closeHover.png</file>
+        <file>img/del.png</file>
+        <file>img/delHover.png</file>
+        <file>img/noImg.png</file>
+    </qresource>
+</RCC>
