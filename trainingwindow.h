@@ -15,11 +15,13 @@ class TrainingWindow : public QDialog
 public:
     explicit TrainingWindow(QWidget *parent = nullptr);
     ~TrainingWindow();
+    void setCount(int);//установить количество показываемых слов
+
 
 private:
     Ui::TrainingWindow *ui;
     int count;//количество показываемых слов
-    QPixmap hoverImg;
+    QPixmap hoverImg;//картинка с указанием кликнуть
     QList<Word*>* questionList;//указатель на список указателей на слова
     Word* intermediateWord;//указатель на слово-посредник
 

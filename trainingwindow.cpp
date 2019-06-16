@@ -13,4 +13,11 @@ TrainingWindow::TrainingWindow(QWidget *parent) : QDialog(parent), ui(new Ui::Tr
 TrainingWindow::~TrainingWindow()
 {
     delete ui;
+    delete questionList;
+    delete intermediateWord;
+}
+
+void TrainingWindow::setCount(int c)//установить количество показываемых слов
+{
+    this->count = c;
 }
