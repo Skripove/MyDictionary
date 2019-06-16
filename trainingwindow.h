@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::TrainingWindow *ui;
+    int count;//количество показываемых слов
+    QPixmap hoverImg;
+
 };
 
 #endif // TRAININGWINDOW_H

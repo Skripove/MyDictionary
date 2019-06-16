@@ -7,5 +7,6 @@
         <file>img/del.png</file>
         <file>img/delHover.png</file>
         <file>img/noImg.png</file>
+        <file>img/hoverIMG.png</file>
     </qresource>
 </RCC>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>322</width>
-    <height>429</height>
+    <height>470</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,20 +32,20 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="labelImg">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>60</y>
+     <y>80</y>
      <width>300</width>
      <height>300</height>
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::NoFrame</enum>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -55,7 +55,7 @@
    <property name="geometry">
     <rect>
      <x>25</x>
-     <y>380</y>
+     <y>390</y>
      <width>271</width>
      <height>31</height>
     </rect>
