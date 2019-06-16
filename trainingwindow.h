@@ -23,6 +23,9 @@ private:
     QList<Word*>* questionList;//указатель на список указателей на слова
     Word* intermediateWord;//указатель на слово-посредник
 
+    void beginFillList();//начать заполнение списка
+
+
 };
 
 #endif // TRAININGWINDOW_H

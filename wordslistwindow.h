@@ -38,7 +38,6 @@ private slots:
     void on_pushButton_clicked();//кнопка закрытия окна
 
 private:
-    bool dataBaseIsOK();//Проверка открытия или создание БД
     bool readDB();//Считывание БД
     void showList();//Отображаем список слов и картинку
     bool addWordInDB(QString, QString, int);//добавление нового слова в БД и мапы, а так же отображение

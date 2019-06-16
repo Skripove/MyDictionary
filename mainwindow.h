@@ -26,8 +26,14 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    WordsListWindow* wordListDialog;
-    TrainingWindow* trainingDialog;
+    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
+    QString fullDBName = QCoreApplication::applicationDirPath() + QDir::separator() + "db_name.sqlite";//адрес и имя БД
+    int wordsCount;//количество доступных слов
+
+    WordsListWindow* wordListDialog;//указатель на словарь
+    TrainingWindow* trainingDialog;//указатель на окно тренировки
+
+    bool dataBaseIsOK();//Проверка открытия или создание БД и запись количества слов в ней
 };
 
 #endif // MAINWINDOW_H
