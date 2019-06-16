@@ -30,13 +30,15 @@ SOURCES += \
         mainwindow.cpp \
     wordslistwindow.cpp \
     dialogaddword.cpp \
-    trainingwindow.cpp
+    trainingwindow.cpp \
+    word.cpp
 
 HEADERS += \
         mainwindow.h \
     wordslistwindow.h \
     dialogaddword.h \
-    trainingwindow.h
+    trainingwindow.h \
+    word.h
 
 FORMS += \
         mainwindow.ui \

@@ -20,6 +20,7 @@ void MainWindow::on_btnDictionary_clicked()
     //соединение сигнала и слота показа главного окна
     connect(wordListDialog, SIGNAL(showMainWindowSignal()), this, SLOT (showMainWindowSlot()));
     //hide();//скрыли главное окно
+
     wordListDialog->show();//показали окно словаря
 }
 

@@ -2,6 +2,7 @@
 #define TRAININGWINDOW_H
 
 #include <QDialog>
+#include "word.h"
 
 namespace Ui {
 class TrainingWindow;
@@ -19,6 +20,8 @@ private:
     Ui::TrainingWindow *ui;
     int count;//количество показываемых слов
     QPixmap hoverImg;
+    QList<Word*>* questionList;//указатель на список указателей на слова
+    Word* intermediateWord;//указатель на слово-посредник
 
 };
 
