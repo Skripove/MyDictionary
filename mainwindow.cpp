@@ -40,24 +40,23 @@ void MainWindow::on_btnStart_clicked()//слот запуска окна тре�
         return;
     }
 
-    int userWordsCount = ui->lineWordCount->text().toInt();//желаемое число слов
+    userWordsCount = ui->lineWordCount->text().toInt();//желаемое число слов
 
-    if (userWordsCount > wordsCount)//проверка, чтобы введенное число не превышало кол-во доступных слов
-    {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Информация");
-        msgBox.setText("Число должно быть не больше " + QString::number(wordsCount));
-        msgBox.exec();
-        return;
-    }
+//    if (userWordsCount > wordsCount)//проверка, чтобы введенное число не превышало кол-во доступных слов
+//    {
+//        QMessageBox msgBox;
+//        msgBox.setWindowTitle("Информация");
+//        msgBox.setText("Число должно быть не больше " + QString::number(wordsCount));
+//        msgBox.exec();
+//        return;
+//    }
 
-    trainingDialog = new TrainingWindow(this);//создали диалоговое окно для тренировки
+    trainingDialog = new TrainingWindow(this, userWordsCount);//создали диалоговое окно для тренировки
     trainingDialog->setAttribute(Qt::WA_DeleteOnClose);//очистка памяти при закрытии диалогового окна
-    trainingDialog->setCount(userWordsCount);//установили желаемое количество слов
     trainingDialog->show();
 }
 
-void MainWindow::on_pushButton_clicked()//слот выхода из программы
+void MainWindow::on_btnExit_clicked()//слот выхода из программы
 {
     qApp->quit();
 }
@@ -77,7 +76,7 @@ bool MainWindow::dataBaseIsOK()//Проверка открытия или соз
                   return -1;
             }
             qDebug() << "Создали новую БД";
-            QString str = "CREATE TABLE words_table (ru text, eng text, numberImg integer);";//строка запроса создания таблицы
+            QString str = "CREATE TABLE words_table (ru text, eng text, numberImg integer, showing integer, correctly integer, rating integer);";//строка запроса создания таблицы
             QSqlQuery obj_query;//объект для управления запросами
             bool q = obj_query.exec(str);//выполнился ли запрос?
             if(!q)
@@ -86,7 +85,7 @@ bool MainWindow::dataBaseIsOK()//Проверка открытия или соз
                 return -2;
             }
             qDebug() << "Добавили таблицу в БД";
-            str = "INSERT INTO words_table VALUES ('кот', 'cat', 0);";//строка запроса вставки строки
+            str = "INSERT INTO words_table VALUES ('кот', 'cat', 0, 0, 0, 0);";//строка запроса вставки строки
             q = obj_query.exec(str);//выполнился ли запрос?
             if(!q)
             {
