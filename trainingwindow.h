@@ -26,7 +26,7 @@ private:
     QString fullDBName = QCoreApplication::applicationDirPath() + QDir::separator() + "db_name.sqlite";//адрес и имя БД
     QPixmap clickImg;//картинка с указанием кликнуть
     QList<Word*>* questionList;//указатель на список указателей на слова
-    //Word* intermediateWord;//указатель на слово-посредник
+    Word* intermediateWord;//указатель на слово-посредник
 
     void beginFillList();//начать заполнение списка
     void calcPercentWords();//вычисление процентов слов

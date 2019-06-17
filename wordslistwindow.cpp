@@ -90,7 +90,7 @@ bool WordsListWindow::addWordInDB(QString ru, QString eng, int number)//доба
 
     QString newName = QString::number(number);//преобразуем число в строку
     QSqlQuery obj_query;//объект для управления запросами
-    QString str = "INSERT INTO words_table VALUES('" + ru + "', '" + eng + "', "+ newName +");";
+    QString str = "INSERT INTO words_table VALUES('" + ru + "', '" + eng + "', "+ newName +", 0, 0, 0);";
 
     if(!obj_query.exec(str))
         qDebug()<<"Не удалось занести строку в БД";

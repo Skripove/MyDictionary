@@ -13,6 +13,7 @@ TrainingWindow::TrainingWindow(QWidget *parent, int c) : QDialog(parent), ui(new
     ui->labelImg->setPixmap(clickImg.scaled(w, h, Qt::KeepAspectRatio));//положили главную картинку в лейбл
 
     calcPercentWords();//вычисление процентов слов
+    read70FromDB();
 }
 
 TrainingWindow::~TrainingWindow()
@@ -38,25 +39,24 @@ bool TrainingWindow::read70FromDB()//считывание необходимых
           qDebug() << "Ошибка при открытии файла БД";
           return -1;
     }
+    QSqlQuery obj_query;//объект для управления запросами
+    QString sev = QString::number(seventy);//перевели в строку
+    QString str = "SELECT ru, eng, numberImg, showing, correctly, rating FROM words_table ORDER BY rating, showing, correctly LIMIT " + sev + ";";
+    if(!obj_query.exec(str))
+        qDebug()<<"Не удалось открыть таблицу БД";
+    QSqlRecord rec = obj_query.record();
+    while(obj_query.next())
+    {
+        QString ru = obj_query.value(rec.indexOf("ru")).toString();
+        QString eng = obj_query.value(rec.indexOf("eng")).toString();
+        QString n = obj_query.value(rec.indexOf("numberImg")).toString();
+        int s = obj_query.value(rec.indexOf("showing")).toInt();
+        int c = obj_query.value(rec.indexOf("currectly")).toInt();
+        int r = obj_query.value(rec.indexOf("rating")).toInt();
 
-//    QSqlQuery obj_query;//объект для управления запросами
-//    if(!obj_query.exec("SELECT ru, eng, numberImg FROM words_table;"))
-//        qDebug()<<"Не удалось открыть таблицу БД";
-//    QSqlRecord rec = obj_query.record();
-//    while(obj_query.next())
-//    {
-//        QVector<QString> tmpVecRU;//создали временный вектор RU
-//        QVector<QString> tmpVecENG;//создали временный вектор ENG
-
-//        tmpVecRU.push_back(obj_query.value(rec.indexOf("eng")).toString());//вставляем слова в вектор
-//        tmpVecRU.push_back(obj_query.value(rec.indexOf("numberImg")).toString());//вставляем слова в вектор
-
-//        tmpVecENG.push_back(obj_query.value(rec.indexOf("ru")).toString());//вставляем слова в вектор
-//        tmpVecENG.push_back(obj_query.value(rec.indexOf("numberImg")).toString());//вставляем слова в вектор
-
-//        mapRU->insert(obj_query.value(rec.indexOf("ru")).toString(), tmpVecRU);//заносим информацию в мапRU
-//        mapENG->insert(obj_query.value(rec.indexOf("eng")).toString(), tmpVecENG);//заносим информацию в мапENG
-//    }
+        intermediateWord = new Word(ru, eng, n, s, c, r);//создали указатель на объект слова
+        questionList->push_back(intermediateWord);//добавили указатель на слово в список
+    }
     dbase.close();
     return true;
 }

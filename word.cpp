@@ -5,10 +5,10 @@ Word::Word()
 
 }
 
-Word::Word(QString ru, QString e, QString n, int s, int c, int r)//конструктор от параметров
+Word::Word(QString ru, QString eng, QString n, int s, int c, int r)//конструктор от параметров
 {
     this->ru = ru;
-    this->eng = e;
+    this->eng = eng;
     this->nameImg = n;
     this->showing = s;
     this->correctly = c;
