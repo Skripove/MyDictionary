@@ -13,54 +13,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-void MainWindow::on_btnDictionary_clicked()//кнопка открытия словаря
-{
-    wordListDialog = new WordsListWindow(this);//создали диалоговое окно для добавления новых слов
-    wordListDialog->setAttribute(Qt::WA_DeleteOnClose);//очистка памяти при закрытии диалогового окна
-    //соединение сигнала и слота показа главного окна
-    connect(wordListDialog, SIGNAL(showMainWindowSignal()), this, SLOT (showMainWindowSlot()));
-    //hide();//скрыли главное окно
-    wordListDialog->show();//показали окно словаря
-}
-
-void MainWindow::showMainWindowSlot()//слот показа главного окна
-{
-    show();
-}
-
-void MainWindow::on_btnStart_clicked()//слот запуска окна тренировок
-{
-    if(ui->lineWordCount->text().isEmpty())//проверка на ввод желаемого числа слов
-    {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Информация");
-        msgBox.setText("Введите желаемое количество слов (не более " + QString::number(wordsCount) + ")");
-        msgBox.exec();
-        return;
-    }
-
-    userWordsCount = ui->lineWordCount->text().toInt();//желаемое число слов
-
-//    if (userWordsCount > wordsCount)//проверка, чтобы введенное число не превышало кол-во доступных слов
-//    {
-//        QMessageBox msgBox;
-//        msgBox.setWindowTitle("Информация");
-//        msgBox.setText("Число должно быть не больше " + QString::number(wordsCount));
-//        msgBox.exec();
-//        return;
-//    }
-
-    trainingDialog = new TrainingWindow(this, userWordsCount);//создали диалоговое окно для тренировки
-    trainingDialog->setAttribute(Qt::WA_DeleteOnClose);//очистка памяти при закрытии диалогового окна
-    trainingDialog->show();
-}
-
-void MainWindow::on_btnExit_clicked()//слот выхода из программы
-{
-    qApp->quit();
-}
-
 bool MainWindow::dataBaseIsOK()//Проверка открытия или создание БД и запись количества слов в ней
 {
     //-------------SQLLite----------------
@@ -115,3 +67,51 @@ bool MainWindow::dataBaseIsOK()//Проверка открытия или соз
         dbase.close();//закрыли БД
         return true;
 }
+
+void MainWindow::on_btnDictionary_clicked()//кнопка открытия словаря
+{
+    wordListDialog = new WordsListWindow(this);//создали диалоговое окно для добавления новых слов
+    wordListDialog->setAttribute(Qt::WA_DeleteOnClose);//очистка памяти при закрытии диалогового окна
+    //соединение сигнала и слота показа главного окна
+    connect(wordListDialog, SIGNAL(showMainWindowSignal()), this, SLOT (showMainWindowSlot()));
+    //hide();//скрыли главное окно
+    wordListDialog->show();//показали окно словаря
+}
+
+void MainWindow::showMainWindowSlot()//слот показа главного окна
+{
+    show();
+}
+
+void MainWindow::on_btnStart_clicked()//слот запуска окна тренировок
+{
+    if(ui->lineWordCount->text().isEmpty())//проверка на ввод желаемого числа слов
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Информация");
+        msgBox.setText("Введите желаемое количество слов (не более " + QString::number(wordsCount) + ")");
+        msgBox.exec();
+        return;
+    }
+
+    userWordsCount = ui->lineWordCount->text().toInt();//желаемое число слов
+
+    if (userWordsCount > wordsCount)//проверка, чтобы введенное число не превышало кол-во доступных слов
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Информация");
+        msgBox.setText("Число должно быть не больше " + QString::number(wordsCount));
+        msgBox.exec();
+        return;
+    }
+
+    trainingDialog = new TrainingWindow(this, wordsCount, userWordsCount);//создали диалоговое окно для тренировки
+    trainingDialog->setAttribute(Qt::WA_DeleteOnClose);//очистка памяти при закрытии диалогового окна
+    trainingDialog->show();
+}
+
+void MainWindow::on_btnExit_clicked()//слот выхода из программы
+{
+    qApp->quit();
+}
+
