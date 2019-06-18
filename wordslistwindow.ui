@@ -182,7 +182,7 @@ border-image: url(:/res/img/delHover.png);
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btnClose">
    <property name="geometry">
     <rect>
      <x>494</x>

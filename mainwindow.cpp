@@ -17,6 +17,7 @@ bool MainWindow::dataBaseIsOK()//Проверка открытия или соз
 {
     //-------------SQLLite----------------
 //        qDebug()<<fullDBName;
+        QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
         bool isDB_Open = false;//открыта или закрыта БД
 
         if(!QFile(fullDBName).exists())//если файла не существует
@@ -68,19 +69,38 @@ bool MainWindow::dataBaseIsOK()//Проверка открытия или соз
         return true;
 }
 
+void MainWindow::showWordsCountSlot()//слот показа кол-ва доступных слов
+{
+    showWordsCount();//показали кол-во доступных слов
+}
+
+bool MainWindow::showWordsCount()//показать кол-во доступных слов
+{
+    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
+    dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
+    if (!dbase.open())//если база не открывается
+    {
+          qDebug() << "Ошибка при открытии файла БД";
+          return -1;
+    }
+    QSqlQuery obj_query;//объект для управления запросами
+    if(!obj_query.exec("SELECT COUNT(numberImg) FROM words_table;"))
+        qDebug()<<"Не удалось открыть таблицу БД";
+    obj_query.first();
+    wordsCount = obj_query.value(0).toInt();//записали количество слов в базе
+    dbase.close();//закрыли БД
+    ui->labelWordsCount->setText(QString::number(wordsCount));
+    return true;
+}
+
 void MainWindow::on_btnDictionary_clicked()//кнопка открытия словаря
 {
     wordListDialog = new WordsListWindow(this);//создали диалоговое окно для добавления новых слов
     wordListDialog->setAttribute(Qt::WA_DeleteOnClose);//очистка памяти при закрытии диалогового окна
-    //соединение сигнала и слота показа главного окна
-    connect(wordListDialog, SIGNAL(showMainWindowSignal()), this, SLOT (showMainWindowSlot()));
+    //соединение сигнала и слота обновления кол-ва слов в главном окне
+    connect(wordListDialog, SIGNAL(showWordsCountSignal()), this, SLOT (showWordsCountSlot()));
     //hide();//скрыли главное окно
     wordListDialog->show();//показали окно словаря
-}
-
-void MainWindow::showMainWindowSlot()//слот показа главного окна
-{
-    show();
 }
 
 void MainWindow::on_btnStart_clicked()//слот запуска окна тренировок

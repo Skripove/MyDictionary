@@ -22,7 +22,7 @@ public:
 
 signals:
     void provideNewImageNameSignal(QString);//предоставить имя новой картинки
-    void showMainWindowSignal();//сигнал показа MainWindow
+    void showWordsCountSignal();//сигнал показа в MainWindow кол-ва доступных слов
 
 private slots:
     void saveRuEngNumberSlot(QString, QString, int);//слот изменения и предоставления имени новой картинки
@@ -35,7 +35,7 @@ private slots:
 
     void on_listWords_itemClicked(QListWidgetItem *item);//слот отображения картинки выделенного элемента
 
-    void on_pushButton_clicked();//кнопка закрытия окна
+    void on_btnClose_clicked();//кнопка закрытия окна
 
 private:
     bool readDB();//Считывание БД
@@ -53,7 +53,7 @@ private:
     QMap<QString, QVector<QString>>* mapENG;
     DialogAddWord* addWordDialog = nullptr;//указатель на диалоговое окно добавления
     int numberImg = 0;//номер последней картинки
-    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
+    //QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     QString fullDBName = QCoreApplication::applicationDirPath() + QDir::separator() + "db_name.sqlite";//адрес и имя БД
 };
 

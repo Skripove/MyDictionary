@@ -20,8 +20,8 @@ public:
 private slots:
 
     void on_btnShowImg_pressed();//обработчик удержания кнопки
-
     void on_btnShowImg_released();//обработчик отпускания кнопки показа изображения
+    void on_pushButton_clicked();//обработчик кнопки ОК
 
 private:
     Ui::TrainingWindow *ui;
@@ -29,7 +29,7 @@ private:
     double userWordsCount;//желаемое количество слов
     int seventy;//70%
     int thirty;//30%
-    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
+    //QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     QString fullDBName = QCoreApplication::applicationDirPath() + QDir::separator() + "db_name.sqlite";//адрес и имя БД
     QPixmap clickImg;//картинка с указанием кликнуть
     QPixmap hiddenImg;//скрытая картинка
@@ -47,6 +47,8 @@ private:
     void startTest();//запуск тестирования
     void showWord();//отобразить слово
 
+    bool answerCorrectly();//верный ответ
+    bool answerWrong();//неверный ответ
 
 };
 

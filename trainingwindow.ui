@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>322</width>
-    <height>470</height>
+    <height>488</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,7 +62,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="lineAnswer">
    <property name="geometry">
     <rect>
      <x>25</x>
@@ -86,6 +86,32 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>440</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ок</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>440</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Пропустить</string>
    </property>
   </widget>
  </widget>

@@ -24,6 +24,7 @@ WordsListWindow::~WordsListWindow()
 
 bool WordsListWindow::readDB()//Считывание БД
 {
+    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
     if (!dbase.open())//если база не открывается
     {
@@ -76,11 +77,11 @@ void WordsListWindow::showList()//Отображаем список слов
             ui->listWords->addItem(i.key() + " - " + i.value()[0]/* + i.value()[1]*/);
         }
     }
-    //...добавить отображение картинки...
 }
 
 bool WordsListWindow::addWordInDB(QString ru, QString eng, int number)//добавление нового слова в БД
 {
+    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
     if (!dbase.open())//если база не открывается
     {
@@ -131,6 +132,7 @@ void WordsListWindow::on_btnAddWord_clicked()//обработчик добавл
 
 bool WordsListWindow::delWordFromDB(QString keyRu)//удалить слово из базы данных
 {
+    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
     if (!dbase.open())//если база не открывается
     {
@@ -271,8 +273,8 @@ void WordsListWindow::on_radioButtonEng_Ru_toggled(bool checked)//отображ
 }
 
 
-void WordsListWindow::on_pushButton_clicked()//кнопка закрытия окна
+void WordsListWindow::on_btnClose_clicked()//кнопка закрытия окна
 {
-    showMainWindowSignal();//показать MainWindow
+    emit showWordsCountSignal();//сигнал показа в MainWindow кол-ва доступных слов
     close();
 }
