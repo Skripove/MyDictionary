@@ -23,6 +23,8 @@ private slots:
     void on_btnShowImg_released();//обработчик отпускания кнопки показа изображения
     void on_pushButton_clicked();//обработчик кнопки ОК
 
+    void on_btnSkip_clicked();
+
 private:
     Ui::TrainingWindow *ui;
     int count;//количество показываемых слов

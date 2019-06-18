@@ -6,7 +6,8 @@
 
 TrainingWindow::TrainingWindow(QWidget *parent, int c, int u) : QDialog(parent), ui(new Ui::TrainingWindow)
 {
-    ui->setupUi(this);    
+    ui->setupUi(this);
+    setWindowFlags(Qt::Dialog | Qt::CustomizeWindowHint | Qt::WindowTitleHint);//окно будет без кнопок
     count = c;//количество слов
     userWordsCount = u;//задаем количество желаемых слов от параметра "u"
     questionList = new QList<Word*>();
@@ -41,7 +42,7 @@ void TrainingWindow::calcPercentWords()//вычисление процентов
     //qDebug()<<thirty;
 }
 
-bool TrainingWindow::readToList()//считывание необходимых 70% слов из БД
+bool TrainingWindow::readToList()//считывание слов из БД
 {
     QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
@@ -70,7 +71,7 @@ void TrainingWindow::read70FromDB()//считывание необходимых
         QString eng = obj_query.value(rec.indexOf("eng")).toString();
         QString n = obj_query.value(rec.indexOf("numberImg")).toString();
         int s = obj_query.value(rec.indexOf("showing")).toInt();
-        int c = obj_query.value(rec.indexOf("currectly")).toInt();
+        int c = obj_query.value(rec.indexOf("correctly")).toInt();
         int r = obj_query.value(rec.indexOf("rating")).toInt();
 
         intermediateWord = new Word(ru, eng, n, s, c, r);//создали указатель на объект слова
@@ -100,7 +101,7 @@ void TrainingWindow::read30FromDB()//считывание необходимых
         QString eng = obj_query.value(rec.indexOf("eng")).toString();
         QString n = obj_query.value(rec.indexOf("numberImg")).toString();
         int s = obj_query.value(rec.indexOf("showing")).toInt();
-        int c = obj_query.value(rec.indexOf("currectly")).toInt();
+        int c = obj_query.value(rec.indexOf("correctly")).toInt();
         int r = obj_query.value(rec.indexOf("rating")).toInt();
 
         intermediateWord = new Word(ru, eng, n, s, c, r);//создали указатель на объект слова
@@ -127,7 +128,6 @@ void TrainingWindow::showWord()//отобразить слово и устано
     ui->lineAnswer->setFocus();//установили фокус на поле ввода
 }
 
-
 void TrainingWindow::on_btnShowImg_pressed()//обработчик удержания кнопки
 {
     int w = ui->labelImg->width();//ширина лейбла картинки
@@ -153,11 +153,23 @@ void TrainingWindow::on_pushButton_clicked()//обработчик кнопки 
         return;
     }
 
-    if(ui->lineAnswer->text() == (*it)->getEng())//проверка на правильный ответ
+    if(ui->lineAnswer->text().toLower() == (*it)->getEng().toLower())//проверка на правильный ответ
     {
         answerCorrectly();//верный ответ
     }
+    else
+    {
+        answerWrong();//НЕ верный ответ
+    }
 
+    it++;//переходим на следующее слово
+    if(it == questionList->end())//если следующего слова нет
+    {
+        qDebug()<<"Закончили";
+        close();
+        return;
+    }
+    showWord();//отображаем слово
 }
 
 bool TrainingWindow::answerCorrectly()//верный ответ
@@ -165,8 +177,7 @@ bool TrainingWindow::answerCorrectly()//верный ответ
     qDebug()<<"Ответ верный";
     (*it)->addShowing();
     (*it)->addCorrectly();
-    if((*it)->getRating() < 5)
-        (*it)->addRating();
+    (*it)->addRating();
 
     QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
@@ -182,36 +193,51 @@ bool TrainingWindow::answerCorrectly()//верный ответ
     QString r = QString::number((*it)->getRating());//преобразуем число в строку
 
     QSqlQuery obj_query;//объект для управления запросами
-    QString str = "UPDATE words_table SET showing = " + s + ", correctly = " + c +
-                                                         ", rating = " + r + " WHERE ru = '" + ru +
-                                                                         "' AND eng = '" + eng + "';";
+    QString str = "UPDATE words_table SET showing = " + s + ", correctly = " + c + ", rating = " + r + " WHERE ru = '" + ru + "' AND eng = '" + eng + "';";
 
     if(!obj_query.exec(str))
         qDebug()<<"Не удалось изменить статистику БД";
     dbase.close();
-    it++;//переходим на следующее слово
-    if(it == questionList->end())
-    {
-        close();
-        qDebug()<<"Закончили тестирование успешно";
-        return true;
-    }
-    showWord();//отображаем слово
     return true;
 }
 
 bool TrainingWindow::answerWrong()//неверный ответ
 {
+    qDebug()<<"Ответ НЕ верный";
+    (*it)->addShowing();
+    (*it)->downRating();
+
+    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
+    dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
+    if (!dbase.open())//если база не открывается
+    {
+          qDebug() << "Ошибка при открытии файла БД";
+          return -1;
+    }
+    QString ru = (*it)->getRu();
+    QString eng = (*it)->getEng();
+    QString s = QString::number((*it)->getShowing());//преобразуем число в строку
+    QString r = QString::number((*it)->getRating());//преобразуем число в строку
+
+    QSqlQuery obj_query;//объект для управления запросами
+    QString str = "UPDATE words_table SET showing = " + s + ", rating = " + r + " WHERE ru = '" + ru + "' AND eng = '" + eng + "';";
+
+    if(!obj_query.exec(str))
+        qDebug()<<"Не удалось изменить статистику БД";
+    dbase.close();
     return true;
 }
 
-
-
-
-
-
-
-
-
-
-
+void TrainingWindow::on_btnSkip_clicked()
+{
+    answerWrong();//засчитывается как не верный ответ
+    qDebug()<<"Пропустили";
+    it++;//переходим на следующее слово
+    if(it == questionList->end())//если следующего слова нет
+    {
+        qDebug()<<"Закончили";
+        close();
+        return;
+    }
+    showWord();//отображаем слово
+}

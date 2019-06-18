@@ -24,5 +24,9 @@ int Word::getRating(){int tmp = this->rating; return tmp;}
 
 void Word::addShowing() {this->showing++;}
 void Word::addCorrectly() {this->correctly++;}
-void Word::addRating(){this->rating++;}
-void Word::downRating(){ if(this->rating != 0) this->rating--;}
+void Word::addRating(){if(this->rating < 5)this->rating++;}
+void Word::downRating()
+{
+    if(this->rating > 3) this->rating = 3;
+    else this->rating = 0;
+}

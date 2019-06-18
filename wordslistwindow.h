@@ -53,7 +53,7 @@ private:
     QMap<QString, QVector<QString>>* mapENG;
     DialogAddWord* addWordDialog = nullptr;//указатель на диалоговое окно добавления
     int numberImg = 0;//номер последней картинки
-    //QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
+    int wordsCount;//количество доступных слов
     QString fullDBName = QCoreApplication::applicationDirPath() + QDir::separator() + "db_name.sqlite";//адрес и имя БД
 };
 

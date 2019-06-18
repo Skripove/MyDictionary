@@ -9,10 +9,12 @@ WordsListWindow::WordsListWindow(QWidget *parent) :
     ui(new Ui::WordsListWindow)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::Dialog | Qt::CustomizeWindowHint | Qt::WindowTitleHint);//окно будет без кнопок
     mapRU = new QMap<QString, QVector<QString>>();
     mapENG = new QMap<QString, QVector<QString>>();
     readDB();//Считывание БД
     showList();//Отображаем список слов
+    ui->labelWordsCount->setText(QString::number(wordsCount));
 }
 
 WordsListWindow::~WordsListWindow()
@@ -56,6 +58,7 @@ bool WordsListWindow::readDB()//Считывание БД
         mapENG->insert(obj_query.value(rec.indexOf("eng")).toString(), tmpVecENG);//заносим информацию в мапENG
     }
     dbase.close();
+    wordsCount = mapRU->count();//запоминаем количество слов
     return true;
 }
 
@@ -173,6 +176,8 @@ void WordsListWindow::deleteWord()//удалить слово
     delWordFromMaps(keyRu, keyEng);//удалить слово из Мапов
     ui->listWords->takeItem(itemInt);//удалить слово из списка
     ui->labelImg->clear();
+    wordsCount--;
+    ui->labelWordsCount->setText(QString::number(wordsCount));
 }
 
 bool WordsListWindow::delWordFromMaps(QString keyRu, QString keyEng)//удалить слово из Мапов
@@ -229,6 +234,8 @@ void WordsListWindow::saveRuEngNumberSlot(QString ru, QString eng, int name)//с
     }
     addWordInDB(ru, eng, name);
     addWordInMaps(ru, eng, name);
+    wordsCount++;
+    ui->labelWordsCount->setText(QString::number(wordsCount));
     showList();
 }
 
@@ -271,7 +278,6 @@ void WordsListWindow::on_radioButtonEng_Ru_toggled(bool checked)//отображ
 {
     showList();
 }
-
 
 void WordsListWindow::on_btnClose_clicked()//кнопка закрытия окна
 {

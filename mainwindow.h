@@ -23,6 +23,8 @@ private slots:
     void on_btnStart_clicked();//обработчик начала тренировки
     void on_btnExit_clicked();//кнопка выхода из программы
 
+    void on_aboutApplication_triggered();//слот о приложении
+
 private:
     Ui::MainWindow *ui;
     //QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;

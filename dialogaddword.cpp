@@ -1,5 +1,7 @@
 #include <QFileDialog>//диалоговое окно выбора файла
 #include <QDir>//Для поиска дирректории и разделителей
+#include <QRegExp>
+#include <QMessageBox>
 #include "dialogaddword.h"
 #include "ui_dialogaddword.h"
 
@@ -63,6 +65,17 @@ void DialogAddWord::on_btnFinishAddWord_clicked()//обработка кнопк
 {
     if(ui->lineAddRus->text().isEmpty() || (ui->lineAddEng->text().isEmpty()))//если одна или другая строка в добавлении пуста
     {
+        return;
+    }
+
+    QRegExp simbolsRu("^[[а-яА-ЯёЁ]+$");//регулярное выражение на проверку строки (только на русские символы)
+    QRegExp simbolsEng("^[A-Za-z]+$");//регулярное выражение на проверку строки (только на английские символы)
+    if(!simbolsRu.exactMatch(ui->lineAddRus->text()) || !simbolsEng.exactMatch(ui->lineAddEng->text()))
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Введены не корректные данные");
+        msgBox.setText("Слова должны соответствовать своим полям. Любые символы кроме русских и английских букв не допускаются.");
+        msgBox.exec();
         return;
     }
 

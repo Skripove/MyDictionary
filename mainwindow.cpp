@@ -5,6 +5,8 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->mainToolBar->addAction(ui->delDB);
+    ui->mainToolBar->addAction(ui->aboutApplication);
     dataBaseIsOK();//Проверка открытия или создание БД и запись количества слов в ней
     ui->labelWordsCount->setText(QString::number(wordsCount));
 }
@@ -135,3 +137,14 @@ void MainWindow::on_btnExit_clicked()//слот выхода из програм
     qApp->quit();
 }
 
+
+void MainWindow::on_aboutApplication_triggered()//слот о приложении
+{
+    QMessageBox::about(this, tr("О приложении Мой словарь"),
+                       tr("<h2>Мой словарь 1.0</h2>"
+                          "<p>Приложение \"Мой словарь\" предназначено для "
+                          "тренировки английских слов. Отличительными особенностями программы являются "
+                          "возможность добавления изображений, ассоциирующихся со словами, а так же автоматическое распределение слов "
+                          "по успеваемости пользователя. Новые и плохо изученные слова всплывают чаще, но иногда будут "
+                          "появляться и хорошо отработанные слова, для дополнительного контроля.</p>"));
+}
