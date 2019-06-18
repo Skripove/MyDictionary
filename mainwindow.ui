@@ -17,7 +17,9 @@
    <double>1.000000000000000</double>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">#MainWindow{
+background-color: rgb(103, 58, 183);
+}</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="btnDictionary">
@@ -34,6 +36,10 @@
       <family>Segoe UI</family>
       <pointsize>15</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(239, 239, 239);
+background-color: rgb(103, 58, 183);</string>
     </property>
     <property name="text">
      <string>Словарь</string>
@@ -55,7 +61,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">color: rgb(239, 239, 239);
+background-color: rgb(103, 58, 183);</string>
     </property>
     <property name="text">
      <string>Начать</string>
@@ -76,6 +83,10 @@
       <pointsize>15</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(239, 239, 239);
+background-color: rgb(103, 58, 183);</string>
+    </property>
     <property name="text">
      <string>Статистика</string>
     </property>
@@ -94,6 +105,10 @@
       <family>Segoe UI</family>
       <pointsize>15</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(239, 239, 239);
+background-color: rgb(103, 58, 183);</string>
     </property>
     <property name="text">
      <string>Выход</string>
@@ -117,7 +132,9 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">border: 0px solid white;
+background-color: rgb(103, 58, 183);
+color: rgb(239, 239, 239);</string>
     </property>
     <property name="text">
      <string/>
@@ -140,6 +157,9 @@
       <family>Segoe UI</family>
       <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(239, 239, 239);</string>
     </property>
     <property name="text">
      <string>Число слов для отработки:</string>
@@ -186,7 +206,10 @@
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">#mainToolBar{
+background-color: rgb(81, 45, 168);
+}
+</string>
    </property>
    <property name="movable">
     <bool>false</bool>
@@ -214,28 +237,24 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="delDB">
-   <property name="icon">
-    <iconset resource="resource.qrc">
-     <normaloff>:/res/img/close.png</normaloff>:/res/img/close.png</iconset>
-   </property>
-   <property name="text">
-    <string>Удалить_БД</string>
-   </property>
-   <property name="toolTip">
-    <string>Стереть все слова</string>
-   </property>
-  </action>
   <action name="aboutApplication">
    <property name="icon">
     <iconset resource="resource.qrc">
      <normaloff>:/res/img/hoverIMG.png</normaloff>:/res/img/hoverIMG.png</iconset>
    </property>
    <property name="text">
-    <string>О_приложении</string>
+    <string>aboutApplication</string>
    </property>
    <property name="toolTip">
     <string>О приложении...</string>
+   </property>
+  </action>
+  <action name="actionhelp">
+   <property name="text">
+    <string>help</string>
+   </property>
+   <property name="toolTip">
+    <string>Справка</string>
    </property>
   </action>
  </widget>

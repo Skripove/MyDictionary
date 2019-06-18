@@ -29,9 +29,9 @@ private:
     Ui::TrainingWindow *ui;
     int count;//количество показываемых слов
     double userWordsCount;//желаемое количество слов
+    int currentNumWord;//номер текущего тестируемого слова
     int seventy;//70%
     int thirty;//30%
-    //QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     QString fullDBName = QCoreApplication::applicationDirPath() + QDir::separator() + "db_name.sqlite";//адрес и имя БД
     QPixmap clickImg;//картинка с указанием кликнуть
     QPixmap hiddenImg;//скрытая картинка

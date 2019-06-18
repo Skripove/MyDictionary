@@ -10,6 +10,7 @@ TrainingWindow::TrainingWindow(QWidget *parent, int c, int u) : QDialog(parent),
     setWindowFlags(Qt::Dialog | Qt::CustomizeWindowHint | Qt::WindowTitleHint);//окно будет без кнопок
     count = c;//количество слов
     userWordsCount = u;//задаем количество желаемых слов от параметра "u"
+    currentNumWord = 0;//номер текущего слова
     questionList = new QList<Word*>();
     clickImg.load(":/res/img/hoverIMG.png");
     int w = ui->labelImg->width();//ширина лейбла картинки
@@ -126,6 +127,9 @@ void TrainingWindow::showWord()//отобразить слово и устано
         hiddenImg.load(dir + QDir::separator() + (*it)->getnameImg() + ".png");//иначе загружаем из папки
     }
     ui->lineAnswer->setFocus();//установили фокус на поле ввода
+
+    currentNumWord++;
+    ui->labelNumWord->setText(QString::number(currentNumWord) + " из " + QString::number(userWordsCount));//отображение номера текущего слова из userWordsCount слов
 }
 
 void TrainingWindow::on_btnShowImg_pressed()//обработчик удержания кнопки
