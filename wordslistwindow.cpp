@@ -40,7 +40,7 @@ bool WordsListWindow::readDB()//Считывание БД
     obj_query.first();
     numberImg = obj_query.value(0).toInt();//прочитали номер самой последней картинки
 
-    if(!obj_query.exec("SELECT ru, eng, numberImg FROM words_table;"))
+    if(!obj_query.exec("SELECT ru, eng, numberImg, showing, correctly, rating FROM words_table;"))
         qDebug()<<"Не удалось открыть таблицу БД";
     QSqlRecord rec = obj_query.record();
     while(obj_query.next())
@@ -51,8 +51,16 @@ bool WordsListWindow::readDB()//Считывание БД
         tmpVecRU.push_back(obj_query.value(rec.indexOf("eng")).toString());//вставляем слова в вектор
         tmpVecRU.push_back(obj_query.value(rec.indexOf("numberImg")).toString());//вставляем слова в вектор
 
+        tmpVecRU.push_back(obj_query.value(rec.indexOf("showing")).toString());//вставляем статистику
+        tmpVecRU.push_back(obj_query.value(rec.indexOf("correctly")).toString());//вставляем статистику
+        tmpVecRU.push_back(obj_query.value(rec.indexOf("rating")).toString());//вставляем статистику
+
         tmpVecENG.push_back(obj_query.value(rec.indexOf("ru")).toString());//вставляем слова в вектор
         tmpVecENG.push_back(obj_query.value(rec.indexOf("numberImg")).toString());//вставляем слова в вектор
+
+        tmpVecENG.push_back(obj_query.value(rec.indexOf("showing")).toString());//вставляем статистику
+        tmpVecENG.push_back(obj_query.value(rec.indexOf("correctly")).toString());//вставляем статистику
+        tmpVecENG.push_back(obj_query.value(rec.indexOf("rating")).toString());//вставляем статистику
 
         mapRU->insert(obj_query.value(rec.indexOf("ru")).toString(), tmpVecRU);//заносим информацию в мапRU
         mapENG->insert(obj_query.value(rec.indexOf("eng")).toString(), tmpVecENG);//заносим информацию в мапENG
@@ -70,14 +78,14 @@ void WordsListWindow::showList()//Отображаем список слов
     {
         ui->listWords->clear();//чистим список
         for (i = mapRU->begin(); i != mapRU->end(); ++i){
-            ui->listWords->addItem(i.key() + " - " + i.value()[0]/* + i.value()[1]*/);
+            ui->listWords->addItem(i.key() + " - " + i.value()[0]);
         }
     }
     else if(ui->radioButtonEng_Ru->isChecked())
     {
         ui->listWords->clear();//чистим список
         for (i = mapENG->begin(); i != mapENG->end(); ++i){
-            ui->listWords->addItem(i.key() + " - " + i.value()[0]/* + i.value()[1]*/);
+            ui->listWords->addItem(i.key() + " - " + i.value()[0]);
         }
     }
 }
@@ -212,7 +220,6 @@ void WordsListWindow::on_btnDelWord_clicked()//обработчик кнопки
     QMessageBox msgBox;
     msgBox.setWindowTitle("Важно");
     msgBox.setText("Удалить слово без возможности восстановления?");
-    //msgBox.setInformativeText("Ок - ДА\nCancel - ОТМЕНА");
     msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
     msgBox.setIcon(QMessageBox::Question);
     msgBox.setDefaultButton(QMessageBox::Ok);
@@ -248,11 +255,17 @@ void WordsListWindow::on_listWords_itemClicked(QListWidgetItem *item)//слот 
     if(ui->radioButtonRu_Eng->isChecked())
     {
        imageName = mapRU->value(key)[1];//значение последнего элемента (вектора по ключу)
+       ui->labelShowing->setText("Показы: " + mapRU->value(key)[2]);
+       ui->labelCorrectly->setText("Правильные ответы: " + mapRU->value(key)[3]);
+       ui->labelRating->setText("Рейтинг: " + mapRU->value(key)[4]);
     }
 
     else if(ui->radioButtonEng_Ru->isChecked())
     {
         imageName = mapENG->value(key)[1];//значение последнего элемента (вектора по ключу)
+        ui->labelShowing->setText("Показы: " + mapENG->value(key)[2]);
+        ui->labelCorrectly->setText("Правильные ответы: " + mapENG->value(key)[3]);
+        ui->labelRating->setText("Рейтинг: " + mapENG->value(key)[4]);
     }
 
     QString fullFN =":/res/img/noImg.png";
