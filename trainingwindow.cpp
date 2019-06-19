@@ -4,10 +4,11 @@
 #include "trainingwindow.h"
 #include "ui_trainingwindow.h"
 
-TrainingWindow::TrainingWindow(QWidget *parent, int c, int u) : QDialog(parent), ui(new Ui::TrainingWindow)
+TrainingWindow::TrainingWindow(QWidget *parent, int c, int u, bool rn) : QDialog(parent), ui(new Ui::TrainingWindow)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Dialog | Qt::CustomizeWindowHint | Qt::WindowTitleHint);//окно будет без кнопок
+    ru_eng = rn;//вариант тестирования
     count = c;//количество слов
     userWordsCount = u;//задаем количество желаемых слов от параметра "u"
     currentNumWord = 0;//номер текущего слова
@@ -118,7 +119,9 @@ void TrainingWindow::startTest()//запуск тестирования
 void TrainingWindow::showWord()//отобразить слово и установаить скрытую картинку
 {
     ui->lineAnswer->clear();//очистили поле ввода
-    ui->labelTest->setText((*it)->getRu());//отображаем тестируемое слово
+
+    if(ru_eng) ui->labelTest->setText((*it)->getRu());//отображаем тестируемое русское слово
+    else ui->labelTest->setText((*it)->getEng());//отображаем тестируемое английское слово
 
     if((*it)->getnameImg()=="0"){
         hiddenImg.load(":/res/img/noImg.png");//если имя картинки "0", то загружаем пустую
@@ -157,13 +160,20 @@ void TrainingWindow::on_pushButton_clicked()//обработчик кнопки 
         return;
     }
 
-    if(ui->lineAnswer->text().toLower() == (*it)->getEng().toLower())//проверка на правильный ответ
+    if(ru_eng)//если тест рус-англ
     {
-        answerCorrectly();//верный ответ
+        if(ui->lineAnswer->text().toLower() == (*it)->getEng().toLower())//проверка на правильный ответ рус-англ
+            answerCorrectly();//верный ответ
+        else
+            answerWrong();//НЕ верный ответ
     }
-    else
+
+    else//если тест англ-рус
     {
-        answerWrong();//НЕ верный ответ
+        if(ui->lineAnswer->text().toLower() == (*it)->getRu().toLower())//проверка на правильный ответ англ-рус
+            answerCorrectly();//верный ответ
+        else
+            answerWrong();//НЕ верный ответ
     }
 
     it++;//переходим на следующее слово

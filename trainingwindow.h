@@ -14,7 +14,7 @@ class TrainingWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit TrainingWindow(QWidget *parent = nullptr, int c = 0, int u = 0);
+    explicit TrainingWindow(QWidget *parent = nullptr, int c = 0, int u = 0, bool rn = true);
     ~TrainingWindow();
 
 private slots:
@@ -27,6 +27,7 @@ private slots:
 
 private:
     Ui::TrainingWindow *ui;
+    bool ru_eng;//рус-англ тест
     int count;//количество показываемых слов
     double userWordsCount;//желаемое количество слов
     int currentNumWord;//номер текущего тестируемого слова
@@ -41,7 +42,6 @@ private:
     Word* intermediateWord;//указатель на слово-посредник
 
 
-    //void beginFillList();//начать заполнение списка
     void calcPercentWords();//вычисление процентов слов
     bool readToList();//считывание из БД в список
     void read70FromDB();//считывание необходимых 70% слов из БД

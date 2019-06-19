@@ -142,7 +142,10 @@ void MainWindow::on_btnStart_clicked()//слот запуска окна тре�
         return;
     }
 
-    trainingDialog = new TrainingWindow(this, wordsCount, userWordsCount);//создали диалоговое окно для тренировки
+    bool ru_eng = true;//по умолчанию рус-англ тест
+    if(ui->radioEng_Ru->isChecked()) ru_eng = false;//если стоит другой флаг, то англ-рус тест
+
+    trainingDialog = new TrainingWindow(this, wordsCount, userWordsCount, ru_eng);//создали диалоговое окно для тренировки
     trainingDialog->setAttribute(Qt::WA_DeleteOnClose);//очистка памяти при закрытии диалогового окна
     trainingDialog->show();
 }

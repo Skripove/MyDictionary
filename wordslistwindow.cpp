@@ -246,7 +246,7 @@ void WordsListWindow::saveRuEngNumberSlot(QString ru, QString eng, int name)//с
     showList();
 }
 
-void WordsListWindow::on_listWords_itemClicked(QListWidgetItem *item)//слот отображения картинки выделенного элемента
+void WordsListWindow::on_listWords_itemClicked(QListWidgetItem *item)//слот отображения картинки выделенного элемента и его статистики
 {
     QString key = item->text();//берем текст из выделенного элемента
     QStringList lst = key.split(" ");//Делим строку на слова через пробел
