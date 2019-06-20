@@ -37,6 +37,7 @@ private:
 
     bool dataBaseIsOK();//Проверка открытия или создание БД и запись количества слов в ней
     bool showWordsCount();//показать кол-во доступных слов
+    void animationShow();//анимация появления
 };
 
 #endif // MAINWINDOW_H

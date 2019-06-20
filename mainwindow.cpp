@@ -8,12 +8,26 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->mainToolBar->addAction(ui->aboutApplication);
     dataBaseIsOK();//Проверка открытия или создание БД и запись количества слов в ней
     ui->labelWordsCount->setText(QString::number(wordsCount));
+    ui->lineWordCount->setFocus();//фокус на ввод кол-ва слов
+
+    animationShow();//плавное появление главного окна
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::animationShow()//анимация появления
+{
+    setWindowOpacity(0);
+    QPropertyAnimation* animation = new QPropertyAnimation(this, "windowOpacity");
+    animation->setDuration(300);
+    animation->setStartValue(0);
+    animation->setEndValue(1);
+    animation->start();
+}
+
 bool MainWindow::dataBaseIsOK()//Проверка открытия или создание БД и запись количества слов в ней
 {
     //-------------SQLLite----------------
@@ -165,5 +179,5 @@ void MainWindow::on_aboutApplication_triggered()//слот о приложени
                           "<p>Отличительными особенностями программы являются "
                           "возможность добавления изображений, ассоциирующихся со словами, а так же автоматическое распределение слов "
                           "по успеваемости пользователя. Новые и плохо изученные слова всплывают чаще, но иногда будут "
-                          "появляться и хорошо отработанные слова, для дополнительного контроля.</p>"));
+                          "появляться и хорошо отработанные, для дополнительного контроля.</p>"));
 }

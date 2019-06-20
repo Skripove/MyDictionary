@@ -3,13 +3,14 @@
 #include <QPixmap>
 #include <QDir>
 #include <QMessageBox>
+#include <QMouseEvent>
 
 WordsListWindow::WordsListWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::WordsListWindow)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::Dialog | Qt::CustomizeWindowHint | Qt::WindowTitleHint);//окно будет без кнопок
+    setWindowFlags(Qt::Dialog | Qt::CustomizeWindowHint | Qt::WindowTitleHint /*| Qt::FramelessWindowHint*/);//окно будет без кнопок
     mapRU = new QMap<QString, QVector<QString>>();
     mapENG = new QMap<QString, QVector<QString>>();
     readDB();//Считывание БД
@@ -297,3 +298,32 @@ void WordsListWindow::on_btnClose_clicked()//кнопка закрытия ок�
     emit showWordsCountSignal();//сигнал показа в MainWindow кол-ва доступных слов
     close();
 }
+
+
+
+//Перемещение окна мышкой (глюченый)
+//void WordsListWindow::mousePressEvent(QMouseEvent *event)
+//{
+//    QRect p = this->geometry();
+//    if(event->button() == Qt::LeftButton)
+//    {
+//        lastPoint = event->pos();
+//        if(!p.contains(lastPoint))
+//            return;
+//        b_move = true;
+//    }
+//}
+
+//void WordsListWindow::mouseMoveEvent(QMouseEvent *event)
+//{
+//    if((event->buttons() & Qt::LeftButton) && b_move)
+//        move(event->globalX()-lastPoint.x(),
+//             event->globalY()-lastPoint.y());
+//}
+
+//void WordsListWindow::mouseReleaseEvent(QMouseEvent *event)
+//{
+//    if (event->button() == Qt::LeftButton && b_move) {
+//            b_move = false;
+//        }
+//}

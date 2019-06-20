@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>615</width>
+    <width>547</width>
     <height>492</height>
    </rect>
   </property>
@@ -20,20 +20,22 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">#WordsListWindow{
+background-color: white;
+}</string>
   </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>29</x>
+     <x>13</x>
      <y>22</y>
-     <width>251</width>
-     <height>41</height>
+     <width>141</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>11</pointsize>
+     <pointsize>10</pointsize>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -45,7 +47,7 @@
 }</string>
    </property>
    <property name="title">
-    <string/>
+    <string>Сортировать по:</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -59,20 +61,20 @@
    <widget class="QRadioButton" name="radioButtonRu_Eng">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>81</width>
+      <x>11</x>
+      <y>20</y>
+      <width>111</width>
       <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Ru - Eng</string>
+     <string>Русским</string>
     </property>
     <property name="checked">
      <bool>true</bool>
@@ -81,27 +83,27 @@
    <widget class="QRadioButton" name="radioButtonEng_Ru">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>10</y>
-      <width>81</width>
+      <x>11</x>
+      <y>40</y>
+      <width>111</width>
       <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Eng - Ru</string>
+     <string>Английским</string>
     </property>
    </widget>
   </widget>
   <widget class="QPushButton" name="btnAddWord">
    <property name="geometry">
     <rect>
-     <x>289</x>
+     <x>273</x>
      <y>22</y>
      <width>41</width>
      <height>41</height>
@@ -126,29 +128,35 @@ border-image: url(:/res/img/addHover.png);
   <widget class="QListWidget" name="listWords">
    <property name="geometry">
     <rect>
-     <x>29</x>
-     <y>72</y>
+     <x>13</x>
+     <y>90</y>
      <width>251</width>
-     <height>401</height>
+     <height>381</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>11</pointsize>
+     <pointsize>10</pointsize>
     </font>
    </property>
    <property name="toolTip">
     <string/>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
   </widget>
   <widget class="QLabel" name="labelImg">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>74</y>
+     <x>275</x>
+     <y>90</y>
      <width>250</width>
      <height>250</height>
     </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
    </property>
    <property name="text">
     <string/>
@@ -160,7 +168,7 @@ border-image: url(:/res/img/addHover.png);
   <widget class="QPushButton" name="btnDelWord">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>324</x>
      <y>20</y>
      <width>41</width>
      <height>41</height>
@@ -185,17 +193,29 @@ border-image: url(:/res/img/delHover.png);
   <widget class="QPushButton" name="btnClose">
    <property name="geometry">
     <rect>
-     <x>494</x>
-     <y>442</y>
-     <width>91</width>
-     <height>31</height>
+     <x>460</x>
+     <y>410</y>
+     <width>70</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Segoe UI</family>
-     <pointsize>13</pointsize>
+     <pointsize>10</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#btnClose{
+color: rgb(58,33,102);
+background-color: rgba(160,192,253, 180);
+border: 0px solid black;
+border-radius: 35px;
+}
+
+#btnClose::hover{
+	background-color: rgba(160,192,253, 255);
+}</string>
    </property>
    <property name="text">
     <string>Закрыть</string>
@@ -204,8 +224,8 @@ border-image: url(:/res/img/delHover.png);
   <widget class="QLabel" name="labelWordsCount">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>30</y>
+     <x>480</x>
+     <y>60</y>
      <width>47</width>
      <height>21</height>
     </rect>
@@ -231,17 +251,20 @@ border-image: url(:/res/img/delHover.png);
   <widget class="QLabel" name="labelShowing">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>340</y>
-     <width>200</width>
+     <x>275</x>
+     <y>355</y>
+     <width>171</width>
      <height>18</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Segoe UI</family>
-     <pointsize>13</pointsize>
+     <pointsize>10</pointsize>
     </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
    </property>
    <property name="text">
     <string/>
@@ -250,17 +273,20 @@ border-image: url(:/res/img/delHover.png);
   <widget class="QLabel" name="labelCorrectly">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>370</y>
-     <width>200</width>
+     <x>275</x>
+     <y>385</y>
+     <width>171</width>
      <height>18</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Segoe UI</family>
-     <pointsize>13</pointsize>
+     <pointsize>10</pointsize>
     </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
    </property>
    <property name="text">
     <string/>
@@ -269,17 +295,20 @@ border-image: url(:/res/img/delHover.png);
   <widget class="QLabel" name="labelRating">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>400</y>
-     <width>200</width>
+     <x>275</x>
+     <y>415</y>
+     <width>171</width>
      <height>18</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Segoe UI</family>
-     <pointsize>13</pointsize>
+     <pointsize>10</pointsize>
     </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
    </property>
    <property name="text">
     <string/>

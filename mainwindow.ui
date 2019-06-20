@@ -6,40 +6,52 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>322</width>
-    <height>306</height>
+    <width>325</width>
+    <height>356</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Мой словарь 1.0</string>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
   </property>
   <property name="styleSheet">
-   <string notr="true">#MainWindow{
-background-color: rgb(103, 58, 183);
+   <string notr="true">ainWindow{
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(159,236,254, 255), stop:1.0 rgba(201,254,162, 255));
+}
+
+#MainWindow{
+background-color: white;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="btnDictionary">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>140</y>
-      <width>120</width>
-      <height>30</height>
+      <x>60</x>
+      <y>147</y>
+      <width>70</width>
+      <height>70</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>15</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(239, 239, 239);
-background-color: rgb(103, 58, 183);</string>
+     <string notr="true">#btnDictionary{
+color: rgb(58,33,102);
+background-color: rgba(159,236,254, 180);
+border: 0px solid black;
+border-radius: 35px;
+}
+
+#btnDictionary::hover{
+	background-color: rgba(159,236,254, 255);
+}</string>
     </property>
     <property name="text">
      <string>Словарь</string>
@@ -49,20 +61,28 @@ background-color: rgb(103, 58, 183);</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>80</y>
-      <width>120</width>
-      <height>41</height>
+      <y>77</y>
+      <width>70</width>
+      <height>70</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>15</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(239, 239, 239);
-background-color: rgb(103, 58, 183);</string>
+     <string notr="true">#btnStart{
+color: rgb(58,33,102);
+background-color: rgba(201,255,161, 180);
+border: 0px solid black;
+border-radius: 35px;
+}
+
+#btnStart::hover{
+	background-color: rgba(201,255,161, 255);
+}</string>
     </property>
     <property name="text">
      <string>Начать</string>
@@ -71,8 +91,8 @@ background-color: rgb(103, 58, 183);</string>
    <widget class="QPushButton" name="btnStatistics">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>180</y>
+      <x>130</x>
+      <y>267</y>
       <width>120</width>
       <height>30</height>
      </rect>
@@ -80,12 +100,19 @@ background-color: rgb(103, 58, 183);</string>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>15</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(239, 239, 239);
-background-color: rgb(103, 58, 183);</string>
+     <string notr="true">#btnStatistics{
+color: rgb(58,33,102);
+background-color: rgba(174,128,255, 0);
+border: 0px solid black;
+}
+
+#btnStatistics::hover{
+
+}</string>
     </property>
     <property name="text">
      <string>Статистика</string>
@@ -95,20 +122,28 @@ background-color: rgb(103, 58, 183);</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>220</y>
-      <width>120</width>
-      <height>30</height>
+      <y>217</y>
+      <width>70</width>
+      <height>70</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>15</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(239, 239, 239);
-background-color: rgb(103, 58, 183);</string>
+     <string notr="true">#btnExit{
+color: rgb(58,33,102);
+background-color: rgba(160,192,253, 180);
+border: 0px solid black;
+border-radius: 35px;
+}
+
+#btnExit::hover{
+	background-color: rgba(160,192,253, 255);
+}</string>
     </property>
     <property name="text">
      <string>Выход</string>
@@ -117,24 +152,24 @@ background-color: rgb(103, 58, 183);</string>
    <widget class="QLineEdit" name="lineWordCount">
     <property name="geometry">
      <rect>
-      <x>57</x>
-      <y>29</y>
-      <width>61</width>
-      <height>31</height>
+      <x>274</x>
+      <y>85</y>
+      <width>41</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>13</pointsize>
+      <pointsize>10</pointsize>
       <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: 0px solid white;
-background-color: rgb(103, 58, 183);
-color: rgb(239, 239, 239);</string>
+     <string notr="true">border: 0px solid rgba(58, 33, 102, 255);
+background-color: rgba(255,159,160, 180);
+color: rgba(58, 33, 102, 255);</string>
     </property>
     <property name="text">
      <string/>
@@ -146,10 +181,10 @@ color: rgb(239, 239, 239);</string>
    <widget class="QLabel" name="labelText">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>161</width>
-      <height>16</height>
+      <x>163</x>
+      <y>87</y>
+      <width>111</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -159,18 +194,18 @@ color: rgb(239, 239, 239);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(239, 239, 239);</string>
+     <string notr="true">color: rgb(58, 33, 102)</string>
     </property>
     <property name="text">
-     <string>Число слов для отработки:</string>
+     <string>Количество слов:</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelWordsCount">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>0</y>
-      <width>61</width>
+      <x>223</x>
+      <y>225</y>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
@@ -196,11 +231,21 @@ color: rgb(239, 239, 239);</string>
    <widget class="QGroupBox" name="groupBoxMain">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>80</y>
-      <width>120</width>
-      <height>80</height>
+      <x>161</x>
+      <y>120</y>
+      <width>101</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#groupBoxMain{
+	border: 0px solid black;
+}</string>
     </property>
     <property name="title">
      <string/>
@@ -208,14 +253,23 @@ color: rgb(239, 239, 239);</string>
     <widget class="QRadioButton" name="radioRu_Eng">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>19</y>
-       <width>82</width>
+       <x>5</x>
+       <y>8</y>
+       <width>91</width>
        <height>17</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(58, 33, 102)</string>
+     </property>
      <property name="text">
-      <string>Рус - Eng</string>
+      <string>Русский - ?</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -224,24 +278,99 @@ color: rgb(239, 239, 239);</string>
     <widget class="QRadioButton" name="radioEng_Ru">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>48</y>
-       <width>82</width>
+       <x>5</x>
+       <y>37</y>
+       <width>91</width>
        <height>17</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(58, 33, 102)</string>
+     </property>
      <property name="text">
-      <string>Eng - Рус</string>
+      <string>English - ?</string>
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="labelHeader">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>3</y>
+      <width>291</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Neucha</family>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(58, 33, 102)</string>
+    </property>
+    <property name="text">
+     <string>МОЙ СЛОВАРЬ</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>24</y>
+      <width>230</width>
+      <height>230</height>
+     </rect>
+    </property>
+    <property name="tabletTracking">
+     <bool>false</bool>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#label{
+	background-color: rgba(255,225,161,180);
+	border-radius: 115px;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="indent">
+     <number>-1</number>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>btnDictionary</zorder>
+   <zorder>btnStart</zorder>
+   <zorder>btnStatistics</zorder>
+   <zorder>btnExit</zorder>
+   <zorder>lineWordCount</zorder>
+   <zorder>labelText</zorder>
+   <zorder>labelWordsCount</zorder>
+   <zorder>groupBoxMain</zorder>
+   <zorder>labelHeader</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>322</width>
+     <width>325</width>
      <height>21</height>
     </rect>
    </property>
@@ -249,7 +378,7 @@ color: rgb(239, 239, 239);</string>
   <widget class="QToolBar" name="mainToolBar">
    <property name="styleSheet">
     <string notr="true">#mainToolBar{
-background-color: rgb(81, 45, 168);
+background-color: rgb(81, 45, 168, 0);
 }
 </string>
    </property>

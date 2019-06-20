@@ -55,6 +55,26 @@ private:
     int numberImg = 0;//номер последней картинки
     int wordsCount;//количество доступных слов
     QString fullDBName = QCoreApplication::applicationDirPath() + QDir::separator() + "db_name.sqlite";//адрес и имя БД
+
+
+    //Перемещение окна мышкой (глюченый)
+//    bool b_move = false;
+//    QPoint lastPoint;
+//    void mousePressEvent(QMouseEvent *event);
+//    void mouseMoveEvent(QMouseEvent *event);
+//    void mouseReleaseEvent(QMouseEvent *event);
 };
 
 #endif // WORDSLISTWINDOW_H
+
+
+
+
+
+
+
+
+
+
+
+
