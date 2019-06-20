@@ -21,7 +21,7 @@ private slots:
 
     void on_btnShowImg_pressed();//обработчик удержания кнопки
     void on_btnShowImg_released();//обработчик отпускания кнопки показа изображения
-    void on_pushButton_clicked();//обработчик кнопки ОК
+    void on_btnOk_clicked();//обработчик кнопки ОК
 
     void on_btnSkip_clicked();
 

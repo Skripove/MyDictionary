@@ -121,8 +121,16 @@ bool WordsListWindow::addWordInMaps(QString ru, QString eng, int number)//доб
     tmpVecRU.push_back(eng);//вставляем слова в вектор
     tmpVecRU.push_back(newName);//вставляем слова в вектор
 
+    tmpVecRU.push_back("0");//вставляем статистику
+    tmpVecRU.push_back("0");//вставляем статистику
+    tmpVecRU.push_back("0");//вставляем статистику
+
     tmpVecENG.push_back(ru);//вставляем слова в вектор
     tmpVecENG.push_back(newName);//вставляем слова в вектор
+
+    tmpVecENG.push_back("0");//вставляем статистику
+    tmpVecENG.push_back("0");//вставляем статистику
+    tmpVecENG.push_back("0");//вставляем статистику
 
     mapRU->insert(ru, tmpVecRU);//заносим информацию в мапRU
     mapENG->insert(eng, tmpVecENG);//заносим информацию в мапENG

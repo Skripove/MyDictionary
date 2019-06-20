@@ -43,7 +43,8 @@ background-color: white;
    </property>
    <property name="styleSheet">
     <string notr="true">#groupBox {
-   border: 0px solid gray;
+	border: 0px solid gray;
+	color: rgb(80, 80, 80);
 }</string>
    </property>
    <property name="title">
@@ -73,6 +74,9 @@ background-color: white;
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(80, 80, 80);</string>
+    </property>
     <property name="text">
      <string>Русским</string>
     </property>
@@ -95,6 +99,9 @@ background-color: white;
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(80, 80, 80);</string>
+    </property>
     <property name="text">
      <string>Английским</string>
     </property>
@@ -103,22 +110,38 @@ background-color: white;
   <widget class="QPushButton" name="btnAddWord">
    <property name="geometry">
     <rect>
-     <x>273</x>
-     <y>22</y>
-     <width>41</width>
-     <height>41</height>
+     <x>171</x>
+     <y>46</y>
+     <width>40</width>
+     <height>40</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="toolTip">
     <string>Добавить слово</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">#btnAddWord{
+    <string notr="true">nAddWord{
 border-image: url(:/res/img/add.png);
 }
-
-#btnAddWord:hover{
+nAddWord:hover{
 border-image: url(:/res/img/addHover.png);
+}
+
+#btnAddWord{
+color: rgb(58,33,102);
+background-color: rgba(217,255,189, 255);
+border: 0px solid black;
+border-radius: 20px;
+}
+
+#btnAddWord::hover{
+	background-color: rgba(201,255,161, 255);
 }</string>
    </property>
    <property name="text">
@@ -143,7 +166,9 @@ border-image: url(:/res/img/addHover.png);
     <string/>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">#listWords{
+border:2px dashed #BBF2FE;
+}</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelImg">
@@ -156,7 +181,7 @@ border-image: url(:/res/img/addHover.png);
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::NoFrame</enum>
    </property>
    <property name="text">
     <string/>
@@ -168,22 +193,39 @@ border-image: url(:/res/img/addHover.png);
   <widget class="QPushButton" name="btnDelWord">
    <property name="geometry">
     <rect>
-     <x>324</x>
-     <y>20</y>
-     <width>41</width>
-     <height>41</height>
+     <x>222</x>
+     <y>44</y>
+     <width>40</width>
+     <height>40</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="toolTip">
     <string>Удалить слово</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">#btnDelWord{
+    <string notr="true">nDelWord{
 border-image: url(:/res/img/del.png);
 }
 
-#btnDelWord:hover{
+nDelWord:hover{
 border-image: url(:/res/img/delHover.png);
+}
+
+#btnDelWord{
+color: rgb(58,33,102);
+background-color: rgba(255,187,188, 255);
+border: 0px solid black;
+border-radius: 20px;
+}
+
+#btnDelWord::hover{
+	background-color: rgba(255,159,160, 255);
 }</string>
    </property>
    <property name="text">
@@ -207,8 +249,8 @@ border-image: url(:/res/img/delHover.png);
    </property>
    <property name="styleSheet">
     <string notr="true">#btnClose{
-color: rgb(58,33,102);
-background-color: rgba(160,192,253, 180);
+color: rgb(80, 80, 80);
+background-color: rgba(188,211,254, 255);
 border: 0px solid black;
 border-radius: 35px;
 }
@@ -253,7 +295,7 @@ border-radius: 35px;
     <rect>
      <x>275</x>
      <y>355</y>
-     <width>171</width>
+     <width>161</width>
      <height>18</height>
     </rect>
    </property>
@@ -263,8 +305,11 @@ border-radius: 35px;
      <pointsize>10</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(80, 80, 80);</string>
+   </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::NoFrame</enum>
    </property>
    <property name="text">
     <string/>
@@ -275,7 +320,7 @@ border-radius: 35px;
     <rect>
      <x>275</x>
      <y>385</y>
-     <width>171</width>
+     <width>161</width>
      <height>18</height>
     </rect>
    </property>
@@ -285,8 +330,11 @@ border-radius: 35px;
      <pointsize>10</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(80, 80, 80);</string>
+   </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::NoFrame</enum>
    </property>
    <property name="text">
     <string/>
@@ -297,7 +345,7 @@ border-radius: 35px;
     <rect>
      <x>275</x>
      <y>415</y>
-     <width>171</width>
+     <width>161</width>
      <height>18</height>
     </rect>
    </property>
@@ -307,13 +355,46 @@ border-radius: 35px;
      <pointsize>10</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(80, 80, 80);</string>
+   </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::NoFrame</enum>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>348</y>
+     <width>171</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#label{
+	background-color: rgba(255,234,189, 255);
+	border-radius: 10px;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>groupBox</zorder>
+  <zorder>btnAddWord</zorder>
+  <zorder>listWords</zorder>
+  <zorder>labelImg</zorder>
+  <zorder>btnDelWord</zorder>
+  <zorder>btnClose</zorder>
+  <zorder>labelWordsCount</zorder>
+  <zorder>labelShowing</zorder>
+  <zorder>labelCorrectly</zorder>
+  <zorder>labelRating</zorder>
  </widget>
  <resources/>
  <connections/>

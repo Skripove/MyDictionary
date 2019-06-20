@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>444</height>
+    <height>440</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#TrainingWindow{
-background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(159,236,254, 255), stop:1.0 rgba(201,254,162, 255));
+background-color: white;
 }</string>
   </property>
   <widget class="QLabel" name="labelTest">
@@ -36,7 +36,7 @@ background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgb
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
+    <string notr="true">color: rgb(100, 100, 100);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
@@ -76,6 +76,25 @@ background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgb
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#lineAnswer{
+	color: rgb(80, 80, 80);
+	background-color: rgba(217,255,189, 255);
+	border-radius: 3px;
+}</string>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="btnShowImg">
    <property name="geometry">
@@ -93,14 +112,32 @@ background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgb
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btnOk">
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>410</y>
-     <width>75</width>
-     <height>23</height>
+     <y>400</y>
+     <width>80</width>
+     <height>30</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#btnOk{
+color: rgb(80, 80, 80);
+background-color: rgba(187,242,254, 255);
+border: 0px solid black;
+border-radius: 10px;
+}
+
+#btnOk::hover{
+	background-color: rgba(159,236,254, 255);
+}</string>
    </property>
    <property name="text">
     <string>Ок</string>
@@ -109,11 +146,32 @@ background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgb
   <widget class="QPushButton" name="btnSkip">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>410</y>
-     <width>75</width>
-     <height>23</height>
+     <x>10</x>
+     <y>400</y>
+     <width>80</width>
+     <height>30</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>Ответ засчитывается как ошибочный</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#btnSkip{
+color: rgb(80, 80, 80);
+background-color: rgba(255,187,188, 255);
+border-radius: 10px;
+}
+
+#btnSkip::hover{
+	background-color: rgba(255,159,160, 255);
+}
+</string>
    </property>
    <property name="text">
     <string>Пропустить</string>

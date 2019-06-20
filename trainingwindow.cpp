@@ -149,7 +149,7 @@ void TrainingWindow::on_btnShowImg_released()//обработчик отпуск
     ui->labelImg->setPixmap(clickImg.scaled(w, h, Qt::KeepAspectRatio));//картинка с призывом нажать
 }
 
-void TrainingWindow::on_pushButton_clicked()//обработчик кнопки ОК
+void TrainingWindow::on_btnOk_clicked()//обработчик кнопки ОК
 {
     if(ui->lineAnswer->text().isEmpty())//проверка на пустой ответ
     {
