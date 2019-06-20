@@ -126,23 +126,15 @@ background-color: white;
     <string>Добавить слово</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">nAddWord{
+    <string notr="true">#btnAddWord{
+border-radius: 20px;
 border-image: url(:/res/img/add.png);
 }
-nAddWord:hover{
+#btnAddWord:hover{
 border-image: url(:/res/img/addHover.png);
 }
 
-#btnAddWord{
-color: rgb(58,33,102);
-background-color: rgba(217,255,189, 255);
-border: 0px solid black;
-border-radius: 20px;
-}
-
-#btnAddWord::hover{
-	background-color: rgba(201,255,161, 255);
-}</string>
+</string>
    </property>
    <property name="text">
     <string/>
@@ -209,23 +201,13 @@ border:2px dashed #BBF2FE;
     <string>Удалить слово</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">nDelWord{
+    <string notr="true">#btnDelWord{
 border-image: url(:/res/img/del.png);
-}
-
-nDelWord:hover{
-border-image: url(:/res/img/delHover.png);
-}
-
-#btnDelWord{
-color: rgb(58,33,102);
-background-color: rgba(255,187,188, 255);
-border: 0px solid black;
 border-radius: 20px;
 }
 
-#btnDelWord::hover{
-	background-color: rgba(255,159,160, 255);
+#btnDelWord:hover{
+border-image: url(:/res/img/delHover.png);
 }</string>
    </property>
    <property name="text">

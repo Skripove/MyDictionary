@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
     ui->mainToolBar->addAction(ui->aboutApplication);
+    ui->mainToolBar->addAction(ui->actionhelp);
     dataBaseIsOK();//Проверка открытия или создание БД и запись количества слов в ней
     ui->labelWordsCount->setText(QString::number(wordsCount));
     ui->lineWordCount->setFocus();//фокус на ввод кол-ва слов

@@ -193,6 +193,9 @@ void WordsListWindow::deleteWord()//удалить слово
     delWordFromMaps(keyRu, keyEng);//удалить слово из Мапов
     ui->listWords->takeItem(itemInt);//удалить слово из списка
     ui->labelImg->clear();
+    ui->labelShowing->clear();
+    ui->labelCorrectly->clear();
+    ui->labelRating->clear();
     wordsCount--;
     ui->labelWordsCount->setText(QString::number(wordsCount));
 }

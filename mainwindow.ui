@@ -466,7 +466,7 @@ background-color: rgb(81, 45, 168, 0);
   <action name="aboutApplication">
    <property name="icon">
     <iconset resource="resource.qrc">
-     <normaloff>:/res/img/hoverIMG.png</normaloff>:/res/img/hoverIMG.png</iconset>
+     <normaloff>:/res/img/about.png</normaloff>:/res/img/about.png</iconset>
    </property>
    <property name="text">
     <string>aboutApplication</string>
@@ -476,6 +476,10 @@ background-color: rgb(81, 45, 168, 0);
    </property>
   </action>
   <action name="actionhelp">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/res/img/help.png</normaloff>:/res/img/help.png</iconset>
+   </property>
    <property name="text">
     <string>help</string>
    </property>
