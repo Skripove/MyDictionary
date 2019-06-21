@@ -25,6 +25,8 @@ private slots:
 
     void on_aboutApplication_triggered();//слот о приложении
 
+    void on_actionhelp_triggered();
+
 private:
     Ui::MainWindow *ui;
     //QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;

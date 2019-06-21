@@ -75,7 +75,26 @@ background-color: white;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(80, 80, 80);</string>
+     <string notr="true">
+#radioButtonRu_Eng {
+	color: rgb(80, 80, 80);
+}
+
+QRadioButton::indicator {
+    width:                  10px;
+    height:                 10px;
+    border-radius:          7px;
+}
+
+QRadioButton::indicator:checked {
+    background-color:       rgb(255,187,188);
+    border:                 2px solid white;
+}
+
+QRadioButton::indicator:unchecked {
+    background-color:       white;
+    border:                 2px solid white;
+}</string>
     </property>
     <property name="text">
      <string>Русским</string>
@@ -100,7 +119,26 @@ background-color: white;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(80, 80, 80);</string>
+     <string notr="true">
+#radioButtonEng_Ru {
+	color: rgb(80, 80, 80);
+}
+
+QRadioButton::indicator {
+    width:                  10px;
+    height:                 10px;
+    border-radius:          7px;
+}
+
+QRadioButton::indicator:checked {
+    background-color:       rgb(255,187,188);
+    border:                 2px solid white;
+}
+
+QRadioButton::indicator:unchecked {
+    background-color:       white;
+    border:                 2px solid white;
+}</string>
     </property>
     <property name="text">
      <string>Английским</string>
@@ -160,6 +198,7 @@ border-image: url(:/res/img/addHover.png);
    <property name="styleSheet">
     <string notr="true">#listWords{
 border:2px dashed #BBF2FE;
+border-radius: 5px;
 }</string>
    </property>
   </widget>
@@ -358,14 +397,34 @@ border-radius: 35px;
    </property>
    <property name="styleSheet">
     <string notr="true">#label{
-	background-color: rgba(255,234,189, 255);
-	border-radius: 10px;
+	border: 2px dashed rgba(255,234,189, 255);
+	border-radius: 5px;
 }</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>-30</x>
+     <y>-70</y>
+     <width>200</width>
+     <height>200</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#label_2{
+	background-color: rgba(255,234,189, 255);
+	border-radius: 100px;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
   <zorder>label</zorder>
   <zorder>groupBox</zorder>
   <zorder>btnAddWord</zorder>
