@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "wordslistwindow.h"
 #include "trainingwindow.h"
+#include "helpdialog.h"
 
 namespace Ui {
 class MainWindow;

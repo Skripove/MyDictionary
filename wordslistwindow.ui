@@ -9,9 +9,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>547</width>
-    <height>492</height>
+    <width>545</width>
+    <height>490</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>545</width>
+    <height>490</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>545</width>
+    <height>490</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Словарь</string>
@@ -210,6 +222,18 @@ border-radius: 5px;
      <width>250</width>
      <height>250</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>250</width>
+     <height>250</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>250</width>
+     <height>250</height>
+    </size>
    </property>
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>

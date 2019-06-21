@@ -8,7 +8,7 @@
 DialogAddWord::DialogAddWord(QWidget *parent) : QDialog(parent), ui(new Ui::DialogAddWord)
 {
     ui->setupUi(this);
-
+    setWindowFlags(windowFlags () & (~Qt::WindowContextHelpButtonHint));//окно будет без вопростельного знака
     savedPic.load(":/res/img/noImg.png");//пустая картинка
     int w = ui->labelNewImage->width();//ширина лейбла новой картинки
     int h = ui->labelNewImage->height();//высота лейбла новой картинки

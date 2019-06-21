@@ -42,7 +42,7 @@ private:
     void showList();//Отображаем список слов и картинку
     bool addWordInDB(QString, QString, int);//добавление нового слова в БД и мапы, а так же отображение
     bool addWordInMaps(QString, QString, int);//добавление нового слова в Мапы
-    void deleteWord();//удалить слово
+    void deleteWord(int);//удалить слово
     bool delWordFromDB(QString);//удалить слово из базы данных
     bool delWordFromMaps(QString, QString);//удалить слово из Мапов
     bool delImageFromDir(QString);//удалить картинку из папки

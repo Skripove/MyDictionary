@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>325</width>
-    <height>339</height>
+    <height>340</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Мой словарь 1.0</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/res/img/icon.png</normaloff>:/res/img/icon.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>

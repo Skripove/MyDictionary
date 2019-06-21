@@ -10,5 +10,6 @@
         <file>img/addHover.png</file>
         <file>img/del.png</file>
         <file>img/delHover.png</file>
+        <file>img/icon.png</file>
     </qresource>
 </RCC>

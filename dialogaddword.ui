@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>392</width>
-    <height>490</height>
+    <width>322</width>
+    <height>509</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
   <widget class="QLabel" name="labelNewImage">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>10</x>
      <y>130</y>
      <width>300</width>
      <height>300</height>
@@ -44,9 +44,9 @@
   <widget class="QLabel" name="labelAddRus">
    <property name="geometry">
     <rect>
-     <x>7</x>
-     <y>54</y>
-     <width>71</width>
+     <x>20</x>
+     <y>60</y>
+     <width>51</width>
      <height>21</height>
     </rect>
    </property>
@@ -68,7 +68,7 @@
     <rect>
      <x>80</x>
      <y>90</y>
-     <width>301</width>
+     <width>231</width>
      <height>31</height>
     </rect>
    </property>
@@ -79,13 +79,17 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(80, 80, 80);</string>
+    <string notr="true">#lineAddEng{
+	color: rgb(80, 80, 80);
+	background-color: rgba(217,255,189, 255);
+	border-radius: 3px;
+}</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnClearImage">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>280</x>
      <y>140</y>
      <width>21</width>
      <height>21</height>
@@ -110,10 +114,10 @@ border-image: url(:/res/img/closeHover.png);
   <widget class="QPushButton" name="btnFinishAddWord">
    <property name="geometry">
     <rect>
-     <x>249</x>
+     <x>250</x>
      <y>440</y>
-     <width>131</width>
-     <height>31</height>
+     <width>60</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="font">
@@ -123,7 +127,16 @@ border-image: url(:/res/img/closeHover.png);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(80, 80, 80);</string>
+    <string notr="true">#btnFinishAddWord{
+color: rgb(80, 80, 80);
+background-color: rgba(187,242,254, 255);
+border: 0px solid black;
+border-radius: 30px;
+}
+
+#btnFinishAddWord::hover{
+	background-color: rgba(159,236,254, 255);
+}</string>
    </property>
    <property name="text">
     <string>Готово</string>
@@ -132,9 +145,9 @@ border-image: url(:/res/img/closeHover.png);
   <widget class="QLabel" name="labelAddEng">
    <property name="geometry">
     <rect>
-     <x>14</x>
-     <y>90</y>
-     <width>61</width>
+     <x>24</x>
+     <y>100</y>
+     <width>51</width>
      <height>21</height>
     </rect>
    </property>
@@ -154,7 +167,7 @@ border-image: url(:/res/img/closeHover.png);
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>90</x>
      <y>10</y>
      <width>131</width>
      <height>21</height>
@@ -179,7 +192,7 @@ border-image: url(:/res/img/closeHover.png);
   <widget class="QPushButton" name="btnChangeImage">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>10</x>
      <y>440</y>
      <width>161</width>
      <height>31</height>
@@ -192,10 +205,19 @@ border-image: url(:/res/img/closeHover.png);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(80, 80, 80);</string>
+    <string notr="true">#btnChangeImage{
+color: rgb(80, 80, 80);
+background-color: rgba(255,234,189, 255);
+border: 0px solid black;
+border-radius: 5px;
+}
+
+#btnChangeImage::hover{
+	background-color: rgba(255,225,161, 255);
+}</string>
    </property>
    <property name="text">
-    <string>Загрузить изображение</string>
+    <string>Выбрать изображение...</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineAddRus">
@@ -203,7 +225,7 @@ border-image: url(:/res/img/closeHover.png);
     <rect>
      <x>80</x>
      <y>50</y>
-     <width>301</width>
+     <width>231</width>
      <height>31</height>
     </rect>
    </property>
@@ -214,7 +236,11 @@ border-image: url(:/res/img/closeHover.png);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(80, 80, 80);</string>
+    <string notr="true">#lineAddRus{
+	color: rgb(80, 80, 80);
+	background-color: rgba(217,255,189, 255);
+	border-radius: 3px;
+}</string>
    </property>
    <property name="text">
     <string/>

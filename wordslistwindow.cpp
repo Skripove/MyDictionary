@@ -169,10 +169,8 @@ bool WordsListWindow::delWordFromDB(QString keyRu)//удалить слово и
     return true;
 }
 
-void WordsListWindow::deleteWord()//удалить слово
+void WordsListWindow::deleteWord(int itemInt)//удалить слово
 {
-    int itemInt;
-    itemInt = ui->listWords->currentRow();//номер выбранной строки
     QString str = ui->listWords->item(itemInt)->text();//текст выбранной строки
     QStringList lst = str.split(" ");//Делим текст на слова через пробел
     QString keyRu;//ключ Ru
@@ -221,6 +219,10 @@ bool WordsListWindow::delImageFromDir(QString name)//удалить картин
 
 void WordsListWindow::on_btnDelWord_clicked()//обработчик кнопки удаления слова
 {
+    int itemInt = -1;
+    itemInt = ui->listWords->currentRow();//номер выбранной строки
+    if(itemInt == -1) return;
+
     if(ui->listWords->count() <= 3)
     {
         QMessageBox msgBox;
@@ -237,7 +239,7 @@ void WordsListWindow::on_btnDelWord_clicked()//обработчик кнопки
     msgBox.setDefaultButton(QMessageBox::Ok);
     int res = msgBox.exec();
     if (res == QMessageBox::Ok) //нажата кнопка Ok
-        deleteWord();
+        deleteWord(itemInt);
     else //отмена
         return;
 }

@@ -7,7 +7,7 @@
 TrainingWindow::TrainingWindow(QWidget *parent, int c, int u, bool rn) : QDialog(parent), ui(new Ui::TrainingWindow)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::Dialog | Qt::CustomizeWindowHint | Qt::WindowTitleHint);//окно будет без кнопок
+    setWindowFlags(windowFlags () & (~Qt::WindowContextHelpButtonHint));//окно будет без вопростельного знака
     ru_eng = rn;//вариант тестирования
     count = c;//количество слов
     userWordsCount = u;//задаем количество желаемых слов от параметра "u"

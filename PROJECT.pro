@@ -31,20 +31,23 @@ SOURCES += \
     wordslistwindow.cpp \
     dialogaddword.cpp \
     trainingwindow.cpp \
-    word.cpp
+    word.cpp \
+    helpdialog.cpp
 
 HEADERS += \
         mainwindow.h \
     wordslistwindow.h \
     dialogaddword.h \
     trainingwindow.h \
-    word.h
+    word.h \
+    helpdialog.h
 
 FORMS += \
         mainwindow.ui \
     wordslistwindow.ui \
     dialogaddword.ui \
-    trainingwindow.ui
+    trainingwindow.ui \
+    helpdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
