@@ -46,6 +46,7 @@ private:
     bool delWordFromDB(QString);//удалить слово из базы данных
     bool delWordFromMaps(QString, QString);//удалить слово из Мапов
     bool delImageFromDir(QString);//удалить картинку из папки
+    void clearStat();//очистить статистику и картинку
 
 private:
     Ui::WordsListWindow *ui;

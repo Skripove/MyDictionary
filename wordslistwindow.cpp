@@ -190,12 +190,17 @@ void WordsListWindow::deleteWord(int itemInt)//удалить слово
     delWordFromDB(keyRu);//удалить слово из базы данных
     delWordFromMaps(keyRu, keyEng);//удалить слово из Мапов
     ui->listWords->takeItem(itemInt);//удалить слово из списка
-    ui->labelImg->clear();
-    ui->labelShowing->clear();
-    ui->labelCorrectly->clear();
-    ui->labelRating->clear();
+    clearStat();//очищаем картинку и статистику
     wordsCount--;
     ui->labelWordsCount->setText(QString::number(wordsCount));
+}
+
+void WordsListWindow::clearStat()//очистить статистику и картинку
+{
+    ui->labelImg->clear();//очистить картинку
+    ui->labelShowing->clear();//очистить статистику
+    ui->labelCorrectly->clear();//очистить статистику
+    ui->labelRating->clear();//очистить статистику
 }
 
 bool WordsListWindow::delWordFromMaps(QString keyRu, QString keyEng)//удалить слово из Мапов
@@ -255,6 +260,7 @@ void WordsListWindow::saveRuEngNumberSlot(QString ru, QString eng, int name)//с
     }
     addWordInDB(ru, eng, name);
     addWordInMaps(ru, eng, name);
+    clearStat();//очищаем картинку и статистику
     wordsCount++;
     ui->labelWordsCount->setText(QString::number(wordsCount));
     showList();
@@ -298,11 +304,13 @@ void WordsListWindow::on_listWords_itemClicked(QListWidgetItem *item)//слот 
 
 void WordsListWindow::on_radioButtonRu_Eng_toggled(bool checked)//отображаем Рус - Англ
 {
+    clearStat();
     showList();
 }
 
 void WordsListWindow::on_radioButtonEng_Ru_toggled(bool checked)//отображаем Англ - Рус
 {
+    clearStat();
     showList();
 }
 

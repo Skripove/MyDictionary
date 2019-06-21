@@ -311,10 +311,10 @@ border-radius: 35px;
   <widget class="QLabel" name="labelWordsCount">
    <property name="geometry">
     <rect>
-     <x>480</x>
-     <y>60</y>
-     <width>47</width>
-     <height>21</height>
+     <x>460</x>
+     <y>10</y>
+     <width>70</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
@@ -326,7 +326,12 @@ border-radius: 35px;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(66, 200, 98);</string>
+    <string notr="true">#labelWordsCount{
+	color: rgb(66, 200, 98);
+	background-color: white;
+	border: 3px solid rgba(255,234,189, 255);
+	border-radius: 35px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>

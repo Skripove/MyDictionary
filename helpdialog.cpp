@@ -4,6 +4,7 @@
 helpDialog::helpDialog(QWidget *parent) : QDialog(parent), ui(new Ui::helpDialog)
 {
     ui->setupUi(this);
+    setWindowFlags(windowFlags () & (~Qt::WindowContextHelpButtonHint));//окно будет без вопростельного знака
     ui->textEdit->setText(tr("<h4>Главное окно:</h4>"
 
                              "<p>На главном окне располагаются активные элементы: кнопки Начать, Словарь, Выход, "
