@@ -25,14 +25,13 @@ WordsListWindow::~WordsListWindow()
     delete mapENG;
 }
 
-bool WordsListWindow::readDB()//Считывание БД
+void WordsListWindow::readDB()//Считывание БД
 {
     QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
     if (!dbase.open())//если база не открывается
     {
           qDebug() << "Ошибка при открытии файла БД";
-          return -1;
     }
 
     QSqlQuery obj_query;//объект для управления запросами
@@ -68,7 +67,6 @@ bool WordsListWindow::readDB()//Считывание БД
     }
     dbase.close();
     wordsCount = mapRU->count();//запоминаем количество слов
-    return true;
 }
 
 void WordsListWindow::showList()//Отображаем список слов
@@ -91,14 +89,13 @@ void WordsListWindow::showList()//Отображаем список слов
     }
 }
 
-bool WordsListWindow::addWordInDB(QString ru, QString eng, int number)//добавление нового слова в БД
+void WordsListWindow::addWordInDB(QString ru, QString eng, int number)//добавление нового слова в БД
 {
     QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
     if (!dbase.open())//если база не открывается
     {
           qDebug() << "Ошибка при открытии файла БД";
-          return -1;
     }
 
     QString newName = QString::number(number);//преобразуем число в строку
@@ -108,10 +105,9 @@ bool WordsListWindow::addWordInDB(QString ru, QString eng, int number)//доба
     if(!obj_query.exec(str))
         qDebug()<<"Не удалось занести строку в БД";
     dbase.close();
-    return true;
 }
 
-bool WordsListWindow::addWordInMaps(QString ru, QString eng, int number)//добавление нового слова в мапы
+void WordsListWindow::addWordInMaps(QString ru, QString eng, int number)//добавление нового слова в мапы
 {
     QString newName = QString::number(number);//преобразуем число в строку
 
@@ -134,8 +130,6 @@ bool WordsListWindow::addWordInMaps(QString ru, QString eng, int number)//доб
 
     mapRU->insert(ru, tmpVecRU);//заносим информацию в мапRU
     mapENG->insert(eng, tmpVecENG);//заносим информацию в мапENG
-
-    return true;
 }
 
 void WordsListWindow::on_btnAddWord_clicked()//обработчик добавления нового слова
@@ -150,14 +144,13 @@ void WordsListWindow::on_btnAddWord_clicked()//обработчик добавл
     addWordDialog->show();//показали форму
 }
 
-bool WordsListWindow::delWordFromDB(QString keyRu)//удалить слово из базы данных
+void WordsListWindow::delWordFromDB(QString keyRu)//удалить слово из базы данных
 {
     QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     dbase.setDatabaseName(fullDBName);//утанавливаем адрес с именем базы
     if (!dbase.open())//если база не открывается
     {
           qDebug() << "Ошибка при открытии файла БД";
-          return -1;
     }
 
     QSqlQuery obj_query;//объект для управления запросами
@@ -166,7 +159,6 @@ bool WordsListWindow::delWordFromDB(QString keyRu)//удалить слово и
     if(!obj_query.exec(str))
         qDebug()<<"Не удалось удалить строку из БД";
     dbase.close();
-    return true;
 }
 
 void WordsListWindow::deleteWord(int itemInt)//удалить слово
@@ -203,23 +195,21 @@ void WordsListWindow::clearStat()//очистить статистику и ка
     ui->labelRating->clear();//очистить статистику
 }
 
-bool WordsListWindow::delWordFromMaps(QString keyRu, QString keyEng)//удалить слово из Мапов
+void WordsListWindow::delWordFromMaps(QString keyRu, QString keyEng)//удалить слово из Мапов
 {
     QString nameDelImage = mapRU->value(keyRu)[1];//имя удаляемой картинки
     mapRU->remove(keyRu);//удаляем значение из русского
     mapENG->remove(keyEng);//удаляем значение из английского
     if(nameDelImage != "0")
         delImageFromDir(nameDelImage);//удалить картинку из папки
-    return true;
 }
 
-bool WordsListWindow::delImageFromDir(QString name)//удалить картинку из папки
+void WordsListWindow::delImageFromDir(QString name)//удалить картинку из папки
 {
     QString fullNImg = QCoreApplication::applicationDirPath() + QDir::separator() + "saved_image" +
             QDir::separator() + name + ".png";//полное имя файла с картинкой
     QFile file(fullNImg);
     file.remove();//удаляем файл картинки
-    return true;
 }
 
 void WordsListWindow::on_btnDelWord_clicked()//обработчик кнопки удаления слова
@@ -320,31 +310,3 @@ void WordsListWindow::on_btnClose_clicked()//кнопка закрытия ок�
     close();
 }
 
-
-
-//Перемещение окна мышкой (глюченый)
-//void WordsListWindow::mousePressEvent(QMouseEvent *event)
-//{
-//    QRect p = this->geometry();
-//    if(event->button() == Qt::LeftButton)
-//    {
-//        lastPoint = event->pos();
-//        if(!p.contains(lastPoint))
-//            return;
-//        b_move = true;
-//    }
-//}
-
-//void WordsListWindow::mouseMoveEvent(QMouseEvent *event)
-//{
-//    if((event->buttons() & Qt::LeftButton) && b_move)
-//        move(event->globalX()-lastPoint.x(),
-//             event->globalY()-lastPoint.y());
-//}
-
-//void WordsListWindow::mouseReleaseEvent(QMouseEvent *event)
-//{
-//    if (event->button() == Qt::LeftButton && b_move) {
-//            b_move = false;
-//        }
-//}

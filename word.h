@@ -10,25 +10,25 @@ public:
     Word(QString, QString, QString, int, int, int);//конструктор от параметров
     ~Word(){}//деструктор
 
-    QString getRu();
-    QString getEng();
-    QString getnameImg();
-    int getShowing();
-    int getCorrectly();
-    int getRating();
+    QString getRu();//получить русское слово
+    QString getEng();//получить английское слово
+    QString getnameImg();//получить имя картинки
+    int getShowing();//получить количество показов
+    int getCorrectly();//получить количество правильных ответов
+    int getRating();//получить рейтинг
 
-    void addShowing();
-    void addCorrectly();
-    void addRating();
-    void downRating();
+    void addShowing();//увеличить показы
+    void addCorrectly();//увеличить правильные ответы
+    void addRating();//увеличить рейтинг
+    void downRating();//уменьшить рейтинг
 
 private:
-    QString ru;
-    QString eng;
-    QString nameImg;
-    int showing;
-    int correctly;
-    int rating;
+    QString ru;//русское
+    QString eng;//английское
+    QString nameImg;//имя картинки
+    int showing;//показы
+    int correctly;//верные ответы
+    int rating;//рейтинг
 };
 
 #endif // WORD_H

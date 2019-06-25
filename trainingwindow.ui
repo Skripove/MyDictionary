@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Тренировка</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/res/img/icon.png</normaloff>:/res/img/icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">#TrainingWindow{
 background-color: white;
@@ -68,6 +72,15 @@ background-color: white;
      <width>300</width>
      <height>300</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
@@ -193,7 +206,7 @@ border-radius: 30px;
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>429</y>
+     <y>455</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -214,7 +227,65 @@ border-radius: 30px;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="labelTrueFalse">
+   <property name="geometry">
+    <rect>
+     <x>125</x>
+     <y>397</y>
+     <width>50</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnExit">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>408</y>
+     <width>60</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#btnExit{
+color: rgb(80, 80, 80);
+background-color: rgba(187,242,254, 255);
+border: 0px solid black;
+border-radius: 30px;
+}
+
+#btnExit::hover{
+	background-color: rgba(159,236,254, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>Выйти</string>
+   </property>
+  </widget>
+  <zorder>btnExit</zorder>
+  <zorder>labelTrueFalse</zorder>
+  <zorder>labelTest</zorder>
+  <zorder>labelImg</zorder>
+  <zorder>lineAnswer</zorder>
+  <zorder>btnShowImg</zorder>
+  <zorder>btnOk</zorder>
+  <zorder>btnSkip</zorder>
+  <zorder>labelNumWord</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

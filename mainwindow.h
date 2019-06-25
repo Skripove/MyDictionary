@@ -20,17 +20,16 @@ public:
 
 private slots:
     void on_btnDictionary_clicked();//обработчик открытия словаря
-    void showWordsCountSlot();//слот показа кол-ва доступных слов
+    void showWordsCountSlot();//слот показа кол-ва доступных слов и отображения главного окна
     void on_btnStart_clicked();//обработчик начала тренировки
     void on_btnExit_clicked();//кнопка выхода из программы
 
-    void on_aboutApplication_triggered();//слот о приложении
+    void on_aboutApplication_triggered();//слот О приложении
 
-    void on_actionhelp_triggered();
+    void on_actionhelp_triggered();//слот Справка
 
 private:
     Ui::MainWindow *ui;
-    //QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");//создали объект БД;
     QString fullDBName = QCoreApplication::applicationDirPath() + QDir::separator() + "db_name.sqlite";//адрес и имя БД
     int wordsCount;//количество доступных слов
     int userWordsCount;//желаемое количество слов
@@ -38,8 +37,8 @@ private:
     WordsListWindow* wordListDialog;//указатель на словарь
     TrainingWindow* trainingDialog;//указатель на окно тренировки
 
-    bool dataBaseIsOK();//Проверка открытия или создание БД и запись количества слов в ней
-    bool showWordsCount();//показать кол-во доступных слов
+    void dataBaseIsOK();//Проверка открытия или создание БД и запись количества слов в ней
+    void showWordsCount();//показать кол-во доступных слов
     void animationShow();//анимация появления
 };
 

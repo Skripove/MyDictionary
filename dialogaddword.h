@@ -20,11 +20,9 @@ signals:
 
 private slots:
     void saveNewImageSlot(QString);//слот установки имени новой картинки
-
     void on_btnChangeImage_clicked();//добавить свою картинку
     void on_btnClearImage_clicked();//очистить добавленную картинку
     void on_btnFinishAddWord_clicked();//Готово
-
 
 private:
     Ui::DialogAddWord *ui;

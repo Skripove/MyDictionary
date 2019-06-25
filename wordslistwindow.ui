@@ -28,6 +28,10 @@
   <property name="windowTitle">
    <string>Словарь</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/res/img/icon.png</normaloff>:/res/img/icon.png</iconset>
+  </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
@@ -466,6 +470,8 @@ border-radius: 35px;
   <zorder>labelCorrectly</zorder>
   <zorder>labelRating</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

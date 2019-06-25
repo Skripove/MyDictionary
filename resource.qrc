@@ -11,5 +11,7 @@
         <file>img/del.png</file>
         <file>img/delHover.png</file>
         <file>img/icon.png</file>
+        <file>img/answerF.png</file>
+        <file>img/answerT.png</file>
     </qresource>
 </RCC>
